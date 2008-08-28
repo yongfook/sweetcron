@@ -2,7 +2,7 @@
 
 	<?php if (isset($errors)): ?>
 	<div class="error">
-	<?=$errors?>
+	<?php echo $errors?>
 	</div>
 	<?php endif; ?>
 

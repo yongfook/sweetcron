@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
-	<title><?=$page_name?> &rsaquo; Sweetcron Admin Panel</title>
+	<title><?php echo $page_name?> &rsaquo; Sweetcron Admin Panel</title>
 	<link rel="shortcut icon" href="<?php echo $this->config->item('base_url')?>favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="<?php echo $this->config->item('base_url')?>public/css/admin.css" type="text/css" media="all" />
 	<script type="text/javascript" src="<?php echo $this->config->item('base_url')?>public/scripts/jquery.js"></script>
