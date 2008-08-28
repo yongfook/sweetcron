@@ -156,7 +156,7 @@ class Sweetcron {
 	function integrity_check()
 	{
 		if (!$this->CI->db->table_exists('feeds') || !$this->CI->db->table_exists('items') || !$this->CI->db->table_exists('options') || !$this->CI->db->table_exists('tags') || !$this->CI->db->table_exists('tag_relationships') || !$this->CI->db->table_exists('users')) {
-			die('Sweetcron is not properly installed.  Try running the install script at: '.$this->CI->config->item('base_url').'admin/install');
+			die('Whoo Hoo!  Almost there - now just run the <a href="'.$this->CI->config->item('base_url').'admin/install'.'">install script</a>.');
 		}		
 	}
 	
