@@ -38,6 +38,7 @@ class Sweetcron {
 	
     function __construct() {
     	$this->CI =& get_instance();
+    	$this->CI->config->set_item('sweetcron_version', '1.04');
     }
 	
 	function fetch_items()
@@ -156,7 +157,11 @@ class Sweetcron {
 	function integrity_check()
 	{
 		if (!$this->CI->db->table_exists('feeds') || !$this->CI->db->table_exists('items') || !$this->CI->db->table_exists('options') || !$this->CI->db->table_exists('tags') || !$this->CI->db->table_exists('tag_relationships') || !$this->CI->db->table_exists('users')) {
+			if (file_exists(BASEPATH.'../.htaccess')) {
 			die('Whoo Hoo!  Almost there - now just run the <a href="'.$this->CI->config->item('base_url').'admin/install'.'">install script</a>.');
+			} else {
+			die('Looks like you are missing an .htaccess file...<br />For instructions on creating one, please see <a href="http://code.google.com/p/sweetcron/wiki/Installation">the installation documentation</a>');
+			}
 		}		
 	}
 	
@@ -164,6 +169,14 @@ class Sweetcron {
 	{
 		if ($this->CI->db->table_exists('feeds') || $this->CI->db->table_exists('items') || $this->CI->db->table_exists('options') || $this->CI->db->table_exists('tags') || $this->CI->db->table_exists('tag_relationships') || $this->CI->db->table_exists('users')) {
 			die('Sweetcron is already (or partially) installed.  If you wish to reinstall, please clear your database first.');
+		}
+	}
+	
+	function compatibility_check()
+	{
+		//checks php version
+		if (version_compare(PHP_VERSION, '5.0.0', '<')) {
+			die('Sorry, Sweetcron is for PHP5 and above.  Your version of PHP is lower than that.  Time to upgrade?');
 		}
 	}
 	

@@ -67,10 +67,7 @@ class Feeds extends Auth_Controller {
 			} else {
 				$new->feed_title = $this->simplepie->get_title();
 				$new->feed_icon = $this->simplepie->get_favicon();
-				$new->feed_url = $this->simplepie->get_permalink();
-				if (!$new->feed_url) {
-				    $new->feed_url = $this->validation->url;
-                }
+				$new->feed_url = $this->validation->url;
 
 				$new->feed_status = 'active';
 				$url = parse_url($new->feed_url);
@@ -104,9 +101,9 @@ class Feeds extends Auth_Controller {
 		$this->simplepie->enable_cache(FALSE);
 		$this->simplepie->init();
 		//check if already in the db
-		if ($this->db->get_where('feeds', array('feed_url' => $this->simplepie->get_permalink()))->row()) {
+		if ($this->db->get_where('feeds', array('feed_url' => $url))->row()) {
 		    //if it was a deleted feed just reactivate it and forward to feed page
-		    $feed = $this->db->get_where('feeds', array('feed_url' => $this->simplepie->get_permalink()))->row();
+		    $feed = $this->db->get_where('feeds', array('feed_url' => $url))->row();
 		    if ($feed->feed_status == 'deleted') {
 		        $this->db->update('feeds', array('feed_status' => 'active'), array('feed_id' => $feed->feed_id));
 		        header('Location: '.$this->config->item('base_url').'admin/feeds');  

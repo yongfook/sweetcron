@@ -44,6 +44,7 @@ class Install extends Controller {
 	function index()
 	{
 		$this->load->library('sweetcron');
+		$this->sweetcron->compatibility_check();
 		$this->sweetcron->install_check();
 		$data->page_name = 'Install';
 		
