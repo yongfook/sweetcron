@@ -1,0 +1,144 @@
+/* Sweetcron Sandbox CSS - 28/08/08
+
+	Table of Contents:
+	Reset
+	Typography
+	Positioning
+	IE Fixes
+	3rd Party
+			
+*/
+
+/* Reset
+---------------------------------------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* now I'm working with a clean slate! */
+
+h2, p#pagination {
+    font-size: 15px;   
+}
+
+p.site_info, p.date, p.original_link {
+    font-size: 10px;   
+}
+
+p.original_link a {
+    color: #999;
+    text-decoration: none;   
+}
+
+/* Typography
+---------------------------------------------------------------------------------------- */
+
+body {
+	font-family: "Lucida Grande", Arial, Helvetica, sans serif;
+	font-size: 12px;
+	color: #333;
+	line-height: 1.7em;
+}	
+
+h1 {
+    font-size: 18px;   
+}
+
+
+/* Positioning
+---------------------------------------------------------------------------------------- */
+
+body {
+    background: white;   
+}
+
+div.center_box {
+    width: 800px;
+    margin: 0 auto;   
+    position: relative;
+}
+
+div#header {
+    padding: 20px 0;
+    border: 2px solid #EEE;
+    border-style: none none solid none;   
+}
+
+ul#navigation {
+    position: absolute;
+    right: 0;
+}   
+
+ul#navigation li {
+    display: inline;
+    margin-left: 10px;   
+}
+
+div#main_container {
+    padding: 20px 20px 0 0;  
+    width: 508px; 
+    float: left;
+}
+
+div#sidebar_container {
+    display: inline;
+    width: 250px;
+    float: left;
+    background: #F8F8F8;
+    border: 1px solid #EEE;
+    margin: 20px 0 0 0;
+    padding: 10px;
+}
+    
+p.site_info {
+    padding-left: 20px;   
+}
+
+ul#activity_list li.item {
+    margin-bottom: 20px;
+}
+
+li.item img, div#single_container img {
+    display: block;
+    border: 1px solid #CCC;
+    padding: 3px;
+    margin: 5px 0;   
+}
+
+ul.item_tag_list li {
+    display: inline;   
+}
+
+p#breadcrumb, p#pagination {
+    background: #FFFFCC;
+    margin-bottom: 20px; 
+    padding: 3px;  
+}
+
+div#sidebar_container h3 {
+    border: 1px solid #CCC;
+    border-style: none none solid none;
+    margin: 10px 0 5px 0;   
+}
+
+ul.tag_list li {
+    display: inline;
+    margin: 0 5px 0 0;   
+}
+
+div#comments_container {
+    border: 1px solid #EEE;
+    border-style: solid none none none;
+    padding: 10px 0;
+    margin-top: 20px;   
+}
+
+/* IE Fixes (lulz)
+---------------------------------------------------------------------------------------- */
+
+
+
+/* 3rd Party
+---------------------------------------------------------------------------------------- */
