@@ -1,0 +1,580 @@
+/* SWEETCRON ADMIN CSS 
+
+	Table of Contents:
+	Reset
+	Typography
+	Positioning
+	Buttons
+		
+*/
+
+/* Reset
+---------------------------------------------------------------------------------------- */
+
+@import "reset.css";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* now I'm working with a clean slate! */
+
+
+/* Typography
+---------------------------------------------------------------------------------------- */
+
+body {
+	font-family: "Lucida Grande", Helvetica, Arial, sans serif;
+	font-size: 12px;
+	color: black;
+	line-height: 1.5em;
+}
+
+p.permalink, p.item_count, p#button_explain, span.input_explain {
+	font-size: 10px;	
+}
+
+p.icon, ul.tags, ul.item_tools, p.tip, ul.feed_tools {
+	font-size: 11px;	
+}
+
+table.generic_table {
+	font-size: 12px;	
+}
+
+ul#nav, p.title, p#pagination {
+    font-size: 15px;   
+}
+
+input.text_input, form.item_search input, textarea.text_input {
+	font-size: 14px;	
+}
+
+span.under_input, span.added, ul.admin_list ul li, p.feed_action, p.icon, ul.item_tools a, ul#nav a, ul#sub_nav a, div#user_info p, p.permalink a, p.item_count, p#button_explain, p.tip, ul.feed_tools a, span.input_explain, div.content blockquote, a.show_all_tags {
+    color: #999;   
+}
+
+div.content, ul.item_tools a:hover {
+	color: #333;	
+}
+
+a, li.expand a {
+    color: #3399ff;
+}   
+
+a:hover, li.expand a:hover {
+    color: #003366;   
+}
+
+div.error {
+    color: #CC0000;   
+}
+
+div.success {
+    color: green;   
+}
+
+span.option label {
+	color: #486d9b;
+}	
+
+ul#nav li.current_item a, ul#nav a:hover, p.tip strong, ul#sub_nav li.current_item a, ul#sub_nav a:hover, span.input_explain strong {
+    color: black;   
+}
+
+label.title, div#footer, div#footer a, ul.feed_tools a:hover, li.item_delete a:hover {
+	color: white;	
+}
+
+div.content strong, ul#nav, div.error, div.success, label.title, p.feed_title, p.title, li.title, p#pagination, p.tip strong, li.expand a, p#breadcrumb a, ul#sub_nav, span.input_explain strong {
+    font-weight: bold;   
+}
+
+div.content em {
+    font-style: italic;   
+}
+
+ul#nav a, p.permalink a, ul#sub_nav a {
+    text-decoration: none;   
+}
+
+div#user_info {
+	line-height: 1.4em;	
+}
+
+p.title {
+	line-height: 1.6em;	
+}
+
+p.icon {
+	line-height: 16px;	
+}
+
+/* Positioning
+---------------------------------------------------------------------------------------- */
+
+body, html {
+    height: 100%;	
+}
+
+body {
+    background: white;   
+    border: 5px solid #0458a3;
+    border-style: solid none none none;
+}
+
+div#footer {
+	padding: 10px;
+	background: #0458a3;	
+}
+
+div#header {
+    padding: 20px;   
+}
+
+p#logo a {
+    display: block;
+    width: 254px;
+    height: 42px;
+    background: transparent url(../images/system/logo.gif);
+}
+
+div#user_info {
+    position: absolute;
+    top: 36px;
+    left: 285px;
+} 
+
+div#nav_container, div#sub_nav_container {
+    position: relative;
+    border: 1px solid #CCC;
+    border-style: none none solid none;  
+    margin: 35px 0 0 0; 
+}
+
+div#nav_container.login {
+	margin: 5px 0 0 0;	
+}
+
+div#sub_nav_container {
+    margin: 30px 0 20px 0;   
+}
+
+ul#nav, ul#sub_nav {
+    float: left;
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+}
+
+ul#sub_nav {
+    border: 1px solid #CCC;
+    border-style: none none none solid;   
+}
+
+ul#nav li, ul#nav li a, ul#sub_nav li, ul#sub_nav li a {
+    float: left;   
+}
+
+ul#nav li a, ul#sub_nav li a {
+    background: #EEE;   
+    padding: 7px 15px; 
+    border: 1px solid #CCC;
+    border-style: solid solid solid none;
+}
+
+ul#sub_nav li a {
+    padding: 5px 10px;   
+}
+
+ul#nav li#nav_dashboard {
+    margin-left: 20px;
+}
+
+ul#nav li#nav_dashboard a {
+    border: 1px solid #CCC;
+}
+
+ul#nav li.current_item a, ul#nav li#nav_dashboard.current_item a, ul#sub_nav li.current_item a {
+	background: white;
+	border-color: #CCC #CCC white #CCC;
+}
+
+div#breadcrumb_container {
+    background: #006699; 
+    position: relative;  
+    border: 1px solid #CCC;
+    border-style: none none solid none;
+}
+
+div#main_content {
+	padding: 20px 20px 0 20px;	
+	width: 588px;
+	position: relative;
+	float: left;
+}
+
+div#side_content {
+	width: 200px;
+	float: left;
+	padding: 20px;	
+	border: 1px solid #CCC;
+	border-style: none none none dashed;
+}
+
+p#button_explain {
+	clear: both;
+	padding: 5px 0 0 0;	
+}
+
+div#main_content p, div.error, div.success, table.generic_table {
+	margin-bottom: 20px;	
+}
+
+div#main_content div.error p, div#main_content table.generic_table p {
+	margin: 0;	
+}
+
+div.error, div.success {
+	background: #FFCCCC;
+	padding: 8px;	
+}
+
+div.success {
+	background: #ccffcc;
+}
+
+label.title {
+	background: #999;
+	padding: 2px 5px;	
+}
+
+input.text_input, form.item_search input, textarea.text_input {
+	border: 1px solid #999;
+	background: #fefee2;
+	width: 570px;
+	display: block;	
+	padding: 5px;
+}
+
+textarea.text_input {
+    height: 300px;   
+}
+
+form.item_search input {
+	width: 187px;	
+}
+
+table.generic_table {
+	width: 100%;	
+	clear: both;
+}
+
+table.generic_table td {
+	border: 1px solid #EEE;
+	padding: 8px;	
+}
+
+form.generic {
+	padding-bottom: 20px;
+	float: left;	
+}
+
+p.icon {
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	background-color: #F9F9F9;
+	height: 16px;
+	padding: 5px 0 5px 25px;	
+	border: 1px solid #EEE;
+	border-style: none none solid none;
+}
+
+div#main_content ul.activity_list p, div#main_content ul.feed_list p {
+	margin: 0;
+}
+
+div#main_content ul.activity_list p.permalink {
+	margin-bottom: 3px;	
+}
+
+div.image img {
+	display: block;
+	border: 1px solid #CCC;
+	padding: 5px;
+}	
+
+div.image {
+	margin: 5px 0;	
+}
+
+ul.activity_list li.item {
+	margin-bottom: 20px;
+	border: 1px solid #999;
+	position: relative;
+}
+
+ul.item_tools, ul.feed_tools {
+	position: absolute;
+	right: 10px;
+	top: 4px;	
+}
+
+ul.item_tools li, ul.feed_tools li {
+	display: inline;
+	padding: 0 0 0 5px;	
+}
+
+ul.item_tools li.expand {
+	background: transparent url(../images/system/icons/silk/bullet_arrow_right.png) 0 center no-repeat;
+	padding-left: 15px;
+}
+
+ul.item_tools li.expand.expanded {
+	background: transparent url(../images/system/icons/silk/bullet_arrow_down.png) 0 center no-repeat;
+}
+
+div.item_container {
+	padding: 8px 12px 10px 12px;	
+}
+
+div#main_content ul.activity_list div.content p, div.content ul, div.content ol {
+    margin-bottom: 10px;   
+}
+
+div.content ul, div.content ol {
+	margin-left: 20px;	
+	list-style-type: disc;
+}
+
+div.content ol {
+	list-style-type: decimal	
+}
+
+div.content blockquote {
+    margin-left: 20px;
+    border: 3px solid #CCC;
+    border-style: none none none solid;
+    padding-left: 10px;   
+}
+
+ul.tags li {
+	display: inline;	
+	padding: 0 5px 0 0;
+}
+
+div.hideshow, ul.item_tools li.expand {
+	display: none;	
+}
+
+ul.activity_list li.publish li.publish_this, ul.activity_list li.draft li.unpublish_this {
+	display: none;	
+}
+
+ul.activity_list li.draft li.publish_this, ul.activity_list li.publish li.unpublish_this {
+	display: inline;	
+}
+
+ul.activity_list li div.item_container {
+	position: relative;
+}
+
+ul.activity_list li.draft {
+    opacity: 0.4;
+	-moz-opacity: 0.4;
+	filter: alpha(opacity=40);   
+}
+
+ul.feed_list p.title {
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+ul.feed_list p {
+	padding: 0 0 0 22px;		
+}
+
+ul.feed_list {
+	border: 1px solid #EEE;
+	border-style: solid none none none;
+	margin-bottom: 20px;
+}
+
+ul.feed_list li.feed {
+	border: 1px solid #EEE;
+	border-style: none solid solid solid;
+	padding: 10px;	
+	background: transparent url(../images/system/dither.gif) bottom left repeat-x;
+	position: relative;
+}
+
+li.feed_delete a, li.item_delete a {
+	padding: 1px 2px;	
+}
+
+li.feed_delete a:hover, li.item_delete a:hover {
+	background: red;	
+}
+
+div.clear {
+	clear: both;	
+}
+
+p#pagination {
+	padding: 15px 10px;
+	background: #F8F8F8;
+}
+
+p#pagination a {
+	background: white;
+	padding: 5px 8px;
+	border: 1px solid #EEE;
+}	
+
+p#pagination a:hover {
+	border: 1px solid #CCC;
+}
+
+h4.side_title {
+	margin: 15px 0 8px 0;
+	border: 1px solid #EEE;
+	border-style: none none solid none;
+	padding: 0 0 3px 0;
+}	
+
+ul.tag_list li {
+	display: inline;
+	padding: 0 0 5px 0;	
+}
+
+span.highlight {
+	background: #FFFFCC;	
+}
+
+span.option_container {
+    border: 1px solid #999;
+    padding: 8px 10px 3px 10px;
+    display: block;   
+}
+
+span.option {
+	display: block;
+	margin-bottom: 5px;	
+}
+
+span.option label {
+	background: #f1f5fa;
+	padding: 1px 2px;	
+	cursor: pointer;
+}
+
+span.input_explain {
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+a.reset_cron_key {
+	position: absolute;
+	right: 25px;	
+}
+
+ul.tag_list.all {
+	display: none;	
+}
+    
+/* Buttons
+---------------------------------------------------------------------------------------- */
+
+.buttons a, .buttons button{
+    display:block;
+    float:left;
+    margin:0 7px 0 0;
+    background-color:#f5f5f5;
+    border:1px solid #dedede;
+    border-top:1px solid #eee;
+    border-left:1px solid #eee;
+    font-size:100%;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#565656;
+    cursor:pointer;
+    padding:5px 10px 6px 7px; /* Links */
+}
+
+.buttons button{
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px; /* IE6 */
+}
+
+.buttons button[type]{
+    padding:5px 10px 5px 7px; /* Firefox */
+    line-height:17px; /* Safari */
+}
+
+*:first-child+html button[type]{
+    padding:4px 10px 3px 7px; /* IE7 */
+}
+
+.buttons button img, .buttons a img{
+    margin:0 3px -3px 0 !important;
+    padding:0;
+    border:none;
+    width:16px;
+    height:16px;
+}
+
+/* STANDARD */
+
+button:hover, .buttons a:hover{
+    background-color:#dff4ff;
+    border:1px solid #c2e1ef;
+    color:#336699;
+}
+.buttons a:active{
+    background-color:#6299c5;
+    border:1px solid #6299c5;
+    color:#fff;
+}
+
+/* POSITIVE */
+
+button.positive, .buttons a.positive{
+    color:#529214;
+}
+.buttons a.positive:hover, button.positive:hover{
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#529214;
+}
+.buttons a.positive:active{
+    background-color:#529214;
+    border:1px solid #529214;
+    color:#fff;
+}
+
+/* NEGATIVE */
+
+.buttons a.negative, button.negative{
+    color:#d12f19;
+}
+.buttons a.negative:hover, button.negative:hover{
+    background:#fbe3e4;
+    border:1px solid #fbc2c4;
+    color:#d12f19;
+}
+.buttons a.negative:active{
+    background-color:#d12f19;
+    border:1px solid #d12f19;
+    color:#fff;
+}
+
+/* Teh IE haxx
+---------------------------------------------------------------------------------------- */
+
+* html div#nav_container {
+    height: 38px;	
+}
