@@ -179,6 +179,9 @@ class Sweetcron {
 	function get_single_item_page($item_id = NULL)
 	{
 		if ($item_id) {
+		    //remove query string (some 3rd party commenting services refer back after commenting)
+		    $item_id = explode('?', $item_id);
+		    $item_id = $item_id[0];
 			$data->item = $this->CI->item_model->get_public_item_by_id($item_id);	
 			$data->page_name = $data->item->get_title();
 			$data->popular_tags = $this->CI->tag_model->get_all_tags('count', 50);
