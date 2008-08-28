@@ -68,6 +68,10 @@ class Feeds extends Auth_Controller {
 				$new->feed_title = $this->simplepie->get_title();
 				$new->feed_icon = $this->simplepie->get_favicon();
 				$new->feed_url = $this->simplepie->get_permalink();
+				if (!$new->feed_url) {
+				    $new->feed_url = $this->validation->url;
+                }
+
 				$new->feed_status = 'active';
 				$url = parse_url($new->feed_url);
 				if (substr($url['host'], 0, 4) == 'www.') {
@@ -75,6 +79,9 @@ class Feeds extends Auth_Controller {
 				} else {
 					$new->feed_domain = $url['host'];					
 				}
+                if (!$new->feed_icon) {
+                    $new->feed_icon = 'http://'.$new->feed_domain.'/favicon.ico';
+                }
 				$this->feed_model->add_feed($new);
 				header('Location: '.$this->config->item('base_url').'admin/feeds');	
 			}
