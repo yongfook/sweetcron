@@ -70,7 +70,9 @@ class Feeds extends Auth_Controller {
 				$new->feed_url = $this->validation->url;
 
 				$new->feed_status = 'active';
-				$url = parse_url($new->feed_url);
+				
+				//use permalink because sometimes feed is on subdomain which screws up plugin compatibility
+				$url = parse_url($this->simplepie->get_permalink());
 				if (substr($url['host'], 0, 4) == 'www.') {
 					$new->feed_domain = substr($url['host'], 4);
 				} else {
