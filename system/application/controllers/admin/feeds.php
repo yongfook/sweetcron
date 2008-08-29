@@ -73,6 +73,9 @@ class Feeds extends Auth_Controller {
 				
 				//use permalink because sometimes feed is on subdomain which screws up plugin compatibility
 				$url = parse_url($this->simplepie->get_permalink());
+				if (!$url['host']) {
+				    $url = parse_url($this->validation->url);    
+                }
 				if (substr($url['host'], 0, 4) == 'www.') {
 					$new->feed_domain = substr($url['host'], 4);
 				} else {
