@@ -208,6 +208,7 @@ class Sweetcron {
 	function get_items_page($type = 'index', $current_page_num = 1, $public = FALSE, $query = NULL)
 	{
 
+        $data->active_feeds = $this->CI->feed_model->get_active_feeds(TRUE);
 		$data->popular_tags = $this->CI->tag_model->get_all_tags('count', 50);
 		$data->all_tags = $this->CI->tag_model->get_all_tags('count');
 		$data->page_type = $type;
@@ -256,6 +257,11 @@ class Sweetcron {
 		        $this->CI->page->SetItemCount($this->CI->item_model->count_items_by_tag($query, $public));        
 		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin.'items/tag/'.$query.'/');
 				$data->items = $this->CI->item_model->get_items_by_tag($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $query, $public);        
+	        } elseif ($type == 'site') {
+				$data->page_name = 'Items Site';
+		        $this->CI->page->SetItemCount($this->CI->item_model->count_items_by_feed_domain($query, $public));        
+		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin.'items/site/'.$query.'/');
+				$data->items = $this->CI->item_model->get_items_by_feed_domain($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $query, $public);        
 	        }
 	
 			if ($query && $type == 'search') {
@@ -265,7 +271,10 @@ class Sweetcron {
 			if ($query && $type == 'tag') {
 				$data->tag = $query;
 			}
-			
+
+			if ($query && $type == 'site') {
+				$data->site = $query;
+			}			
 	
 			//load view
 			if ($public) {

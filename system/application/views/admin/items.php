@@ -8,6 +8,10 @@
 <p id="breadcrumb"><a href="<?php echo $this->config->item('base_url')?>admin/items">Items Top</a> &rsaquo; Tagged with <span class="highlight"><?php echo $tag?></span></p>
 <?php endif; ?>
 
+<?php if (isset($site)): ?>
+<p id="breadcrumb"><a href="<?php echo $this->config->item('base_url')?>admin/items">Items Top</a> &rsaquo; Imported from <span class="highlight"><?php echo $site?></span></p>
+<?php endif; ?>
+
 <?php if ($items):?>
 
 <?php $this->load->view('admin/_activity_list')?>
@@ -41,17 +45,42 @@
 	<input type="submit" style="display: none;"/>
 </form>
 
+<h4 class="side_title">Your Feeds</h4>
+<ul class="generic active_feeds">
+	<?php foreach ($active_feeds as $feed): ?>
+	<li style="background: transparent url(<?php echo $feed->feed_icon?>) 0 center no-repeat;">
+	<?php if (isset($site) && $site == $feed->feed_domain): ?>
+	<?php echo $feed->feed_domain?>
+	<?php else: ?>
+	<a href="<?php echo $this->config->item('base_url')?>admin/items/site/<?php echo $feed->feed_domain?>"><?php echo $feed->feed_domain?></a>
+	<?php endif; ?>
+	</li>
+	<?php endforeach; ?>
+</ul>
+
 <h4 class="side_title">Tags</h4>
 <?php if (isset($popular_tags[0])): ?>
 <ul class="tag_list some">
-<?php foreach ($popular_tags as $tag): ?>
-	<li><a href="<?php echo $this->config->item('base_url')?>admin/items/tag/<?php echo $tag->slug?>"><?php echo $tag->name?></a></li>
+<?php foreach ($popular_tags as $single_tag): ?>
+	<li>
+	<?php if (isset($tag) && $tag == $single_tag->slug): ?>
+	<?php echo $single_tag->name?>
+	<?php else: ?>
+	<a href="<?php echo $this->config->item('base_url')?>admin/items/tag/<?php echo $single_tag->slug?>"><?php echo $single_tag->name?></a>
+	<?php endif; ?>
+	</li>
 <?php endforeach; ?>
 </ul>
 
 <ul class="tag_list all">
-<?php foreach ($all_tags as $tag): ?>
-	<li><a href="<?php echo $this->config->item('base_url')?>admin/items/tag/<?php echo $tag->slug?>"><?php echo $tag->name?></a></li>
+<?php foreach ($all_tags as $single_tag): ?>
+	<li>
+	<?php if (isset($tag) && $tag == $single_tag->slug): ?>
+	<?php echo $single_tag->name?>
+	<?php else: ?>
+	<a href="<?php echo $this->config->item('base_url')?>admin/items/tag/<?php echo $single_tag->slug?>"><?php echo $single_tag->name?></a>
+	<?php endif; ?>
+	</li>
 <?php endforeach; ?>
 </ul>
 <p id="button_explain"><a class="show_all_tags" href="#tag_toggle">Show All Tags</a></p>

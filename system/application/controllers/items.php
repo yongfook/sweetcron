@@ -68,6 +68,15 @@ class Items extends Public_Controller {
 			header('Location: '.$this->config->item('base_url'));			
 		}
 	}
+
+	function site($feed_domain = NULL)
+	{
+		if ($feed_domain) {
+			$this->sweetcron->get_items_page('site', $this->uri->segment(5,1), TRUE, $feed_domain);
+		} else {
+			header('Location: '.$this->config->item('base_url'));			
+		}
+	}
 	
 	function view($item_id = NULL)
 	{

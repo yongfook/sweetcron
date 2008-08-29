@@ -66,9 +66,13 @@ class Feed_model extends Model {
 		return $this->db->get_where('feeds', array('feed_status' => 'active'))->num_rows();	
 	}
 
-	function get_active_feeds()
+	function get_active_feeds($group = FALSE)
 	{
-		return $this->_process($this->db->get_where('feeds', array('feed_status' => 'active'))->result());	
+		if ($group) {
+			return $this->_process($this->db->group_by('feed_domain')->get_where('feeds', array('feed_status' => 'active'))->result());	
+		} else {
+			return $this->_process($this->db->get_where('feeds', array('feed_status' => 'active'))->result());	
+		}
 	}
 	
 	function add_feed($feed)

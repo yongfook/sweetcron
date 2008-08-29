@@ -7,13 +7,21 @@
 	<?php if (isset($query)): ?>
 	<p id="breadcrumb"><a href="<?php echo $this->config->item('base_url')?>">Home</a> &rsaquo; Search for <?php echo $query?></p>
 	<?php endif; ?>
-	
+
+	<?php if (isset($site)): ?>
+	<p id="breadcrumb"><a href="<?php echo $this->config->item('base_url')?>">Home</a> &rsaquo; Items from <?php echo $site?></p>
+	<?php endif; ?>
+		
     <ul id="activity_list">
         <?php if ($items): $i = 1; foreach ($items as $item): ?>
             <!-- begin conditional content -->
             
             <li class="item <?php echo $item->get_feed_class()?>">
-            	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted to <?php echo $item->get_feed_domain()?></p>
+            	<?php if ($item->get_feed_domain() == $this->config->item('base_url')): ?>
+            	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted a blog entry</p>
+            	<?php else: ?>
+            	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted to <a href="<?php echo $this->config->item('base_url')?>items/site/<?php echo $item->get_feed_domain()?>"><?php echo $item->get_feed_domain()?></a></p>
+            	<?php endif; ?>
             	<h2><?php echo $item->get_title()?></h2>
             	<p class="original_link"><a href="<?php echo $item->get_original_permalink()?>"><?php echo $item->get_original_permalink()?></a></p>
             	<?php if ($item->has_content()): ?>

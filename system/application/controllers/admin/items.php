@@ -63,7 +63,16 @@ class Items extends Auth_Controller {
 			header('Location: '.$this->config->item('base_url').'admin/items');				
 		}
 	}
-	
+
+	function site($feed_domain = NULL)
+	{
+		if ($feed_domain) {
+			$this->sweetcron->get_items_page('site', $this->uri->segment(6,1), FALSE, $feed_domain);
+		} else {
+			header('Location: '.$this->config->item('base_url').'admin/items');				
+		}
+	}
+		
 	function fetch()
 	{
 		$this->sweetcron->fetch_items();

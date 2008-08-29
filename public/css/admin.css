@@ -483,6 +483,11 @@ a.reset_cron_key {
 ul.tag_list.all {
 	display: none;	
 }
+
+ul.active_feeds li {
+	padding-left: 22px; 
+	margin-bottom: 5px;	
+}
     
 /* Buttons
 ---------------------------------------------------------------------------------------- */
