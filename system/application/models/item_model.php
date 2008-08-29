@@ -196,9 +196,17 @@ class Item_model extends Model {
 	function count_items_by_feed_domain($feed_domain, $public = FALSE)
 	{
 		if ($public) {
-			$where = array('item_status' => 'publish', 'feed_domain' => $feed_domain);
+			if ($feed_domain == 'sweetcron') {
+				$where = array('item_status' => 'publish', 'item_feed_id' => 0);
+			} else {
+				$where = array('item_status' => 'publish', 'feed_domain' => $feed_domain);
+			}
 		} else {
-			$where = array('item_status !=' => 'deleted', 'feed_domain' => $feed_domain);
+			if ($feed_domain == 'sweetcron') {
+				$where = array('item_status !=' => 'deleted', 'item_feed_id' => 0);
+			} else {
+				$where = array('item_status !=' => 'deleted', 'feed_domain' => $feed_domain);
+			}
 		}
 		return $this->db->select('ID')->join('feeds', 'feeds.feed_id = items.item_feed_id', 'left outer')->get_where('items', $where)->num_rows();
 	}
@@ -206,9 +214,17 @@ class Item_model extends Model {
 	function get_items_by_feed_domain($offset = 0, $limit = 10, $feed_domain, $public = FALSE)
 	{
 		if ($public) {
-			$where = array('item_status' => 'publish', 'feed_domain' => $feed_domain);
+			if ($feed_domain == 'sweetcron') {
+				$where = array('item_status' => 'publish', 'item_feed_id' => 0);
+			} else {
+				$where = array('item_status' => 'publish', 'feed_domain' => $feed_domain);
+			}
 		} else {
-			$where = array('item_status !=' => 'deleted', 'feed_domain' => $feed_domain);
+			if ($feed_domain == 'sweetcron') {
+				$where = array('item_status !=' => 'deleted', 'item_feed_id' => 0);
+			} else {
+				$where = array('item_status !=' => 'deleted', 'feed_domain' => $feed_domain);
+			}
 		}
 		$items = $this->db->limit($limit)->offset($offset)->join('feeds', 'feeds.feed_id = items.item_feed_id', 'left outer')->order_by('item_date', 'DESC')->get_where('items', $where)->result();	
 		return $this->_process($items);

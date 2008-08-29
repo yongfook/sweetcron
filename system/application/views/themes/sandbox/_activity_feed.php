@@ -18,7 +18,7 @@
             
             <li class="item <?php echo $item->get_feed_class()?>">
             	<?php if ($item->get_feed_domain() == $this->config->item('base_url')): ?>
-            	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted a blog entry</p>
+            	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted a <a href="<?php echo $this->config->item('base_url')?>items/site/sweetcron">blog entry</a></p>
             	<?php else: ?>
             	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted to <a href="<?php echo $this->config->item('base_url')?>items/site/<?php echo $item->get_feed_domain()?>"><?php echo $item->get_feed_domain()?></a></p>
             	<?php endif; ?>

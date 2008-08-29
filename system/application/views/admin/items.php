@@ -9,7 +9,7 @@
 <?php endif; ?>
 
 <?php if (isset($site)): ?>
-<p id="breadcrumb"><a href="<?php echo $this->config->item('base_url')?>admin/items">Items Top</a> &rsaquo; Imported from <span class="highlight"><?php echo $site?></span></p>
+<p id="breadcrumb"><a href="<?php echo $this->config->item('base_url')?>admin/items">Items Top</a> &rsaquo; Added via <span class="highlight"><?php echo $site?></span></p>
 <?php endif; ?>
 
 <?php if ($items):?>
@@ -47,6 +47,13 @@
 
 <h4 class="side_title">Your Feeds</h4>
 <ul class="generic active_feeds">
+	<li style="background: transparent url(/favicon.ico) 0 center no-repeat;">
+	<?php if (isset($site) && $site == 'sweetcron'): ?>
+	Sweetcron
+	<?php else: ?>
+	<a href="<?php echo $this->config->item('base_url')?>admin/items/site/sweetcron">Sweetcron</a>
+	<?php endif; ?>
+	</li>
 	<?php foreach ($active_feeds as $feed): ?>
 	<li style="background: transparent url(<?php echo $feed->feed_icon?>) 0 center no-repeat;">
 	<?php if (isset($site) && $site == $feed->feed_domain): ?>
