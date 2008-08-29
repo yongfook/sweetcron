@@ -12,7 +12,7 @@
         <?php if ($items): $i = 1; foreach ($items as $item): ?>
             <!-- begin conditional content -->
             
-            <li class="item">
+            <li class="item <?php echo $item->get_feed_class()?>">
             	<p class="site_info" style="background: transparent url(<?php echo $item->get_feed_icon()?>) 0 center no-repeat">I posted to <?php echo $item->get_feed_domain()?></p>
             	<h2><?php echo $item->get_title()?></h2>
             	<p class="original_link"><a href="<?php echo $item->get_original_permalink()?>"><?php echo $item->get_original_permalink()?></a></p>

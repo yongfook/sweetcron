@@ -57,7 +57,7 @@ class Item_model extends Model {
 				$new_item->feed_data = $items[$key]->feed_data;	
 				$new_item->feed_status = $items[$key]->feed_status;	
 				$new_item->feed_domain = $items[$key]->feed_domain;	
-				$new_item->feed_class = str_replace('\.','_',$new_item->feed_domain);	
+				$new_item->feed_class = str_replace('.','_',$new_item->feed_domain);	
 
 				//standard item components
 				$new_item->ID = $items[$key]->ID;	
