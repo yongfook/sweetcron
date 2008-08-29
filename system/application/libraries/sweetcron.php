@@ -234,21 +234,27 @@ class Sweetcron {
 	        $this->CI->page->SetLinksToDisplay(10);
 	        $this->CI->page->SetCurrentPage($current_page_num);
 	        
+	        if ($public) {
+	            $admin = '';
+            } else {
+                $admin = 'admin/';
+            }
+	        
 	        //conditionals depending on page type
 	        if ($type == 'index') {
 				$data->page_name = 'Home';
 		        $this->CI->page->SetItemCount($this->CI->item_model->count_all_items($public));        
-		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url'));
+		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin);
 				$data->items = $this->CI->item_model->get_all_items($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $public);
 	        } elseif ($type == 'search') {
 				$data->page_name = 'Items Search';
 		        $this->CI->page->SetItemCount($this->CI->item_model->count_items_by_search($query, $public));        
-		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').'items/search/'.$query.'/');
+		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin.'items/search/'.$query.'/');
 				$data->items = $this->CI->item_model->get_items_by_search($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $query, $public);       
 	        } elseif ($type == 'tag') {
 				$data->page_name = 'Items Tag';
 		        $this->CI->page->SetItemCount($this->CI->item_model->count_items_by_tag($query, $public));        
-		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').'items/tag/'.$query.'/');
+		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin.'items/tag/'.$query.'/');
 				$data->items = $this->CI->item_model->get_items_by_tag($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $query, $public);        
 	        }
 	
@@ -269,7 +275,7 @@ class Sweetcron {
 			    $this->CI->load->view('themes/'.$this->CI->config->item('theme').'/items', $data);
 			    $this->CI->load->view('themes/'.$this->CI->config->item('theme').'/_footer', $data);	
 			} else {
-                $this->CI->page->SetLinksHref($this->CI->config->item('base_url').'admin/items/');
+                //$this->CI->page->SetLinksHref($this->CI->config->item('base_url').'admin/items/');
 	            $data->pages = $this->CI->page->GetPageLinks();
 			    $this->CI->load->view('admin/_header', $data);
 			    $this->CI->load->view('admin/items', $data);
