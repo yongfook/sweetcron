@@ -269,13 +269,11 @@ class Sweetcron {
 	
 			//load view
 			if ($public) {
-                //$this->CI->page->SetLinksHref($this->CI->config->item('base_url'));
 	            $data->pages = $this->CI->page->GetPageLinks();
 		 		$this->CI->load->view('themes/'.$this->CI->config->item('theme').'/_header', $data);
 			    $this->CI->load->view('themes/'.$this->CI->config->item('theme').'/items', $data);
 			    $this->CI->load->view('themes/'.$this->CI->config->item('theme').'/_footer', $data);	
 			} else {
-                //$this->CI->page->SetLinksHref($this->CI->config->item('base_url').'admin/items/');
 	            $data->pages = $this->CI->page->GetPageLinks();
 			    $this->CI->load->view('admin/_header', $data);
 			    $this->CI->load->view('admin/items', $data);

@@ -81,6 +81,12 @@ class Sweetcron_item {
 	}
 
 	//return item components
+	
+	function get_id()
+	{
+	   return $this->ID;    
+    }
+    
 	function get_date()
 	{
 		return $this->item_date;	
@@ -195,6 +201,13 @@ class Sweetcron_item {
 					return true;	
 				}
 			}
+		}
+	}
+
+	function has_data($key = NULL)
+	{
+		if (isset($this->item_data[$key])) {
+            return true;
 		}
 	}
 	
