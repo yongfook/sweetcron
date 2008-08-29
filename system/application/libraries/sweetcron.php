@@ -58,6 +58,7 @@ class Sweetcron {
 				$this->CI->simplepie->init();
 				$items = $this->CI->simplepie->get_items();
 				foreach ($items as $item) {
+
 					$new->item_data = array();
 					$new->item_data['title'] = $item->get_title();
 					$new->item_data['permalink'] = $item->get_permalink();
@@ -120,11 +121,37 @@ class Sweetcron {
 	
 	function get_tags($data)
 	{
+		$tags = '';
+		$other_tags = '';
+		//attempt to pull from enclosures
 		if (isset($data['enclosures'][0]->categories[0]->term)) {
 			$tags = html_entity_decode($data['enclosures'][0]->categories[0]->term);
 			$tags = explode(' ', $tags);
-			return $tags;
 		}		
+		
+		//attempt to pull from categories
+		if (isset($data['categories'][0]->term)) {
+			foreach ($data['categories'] as $category) {
+				//sometimes a tag is an ugly url that I don't think we want...
+				if (substr($category->term, 0, 7) != 'http://') {
+					$other_tags[] = html_entity_decode($category->term);						
+				}
+			}
+		}
+		
+		$tags_count = count($tags);
+		$other_tags_count = count($other_tags);
+		
+		//lets go with whichever has the most...
+		if ($tags_count > $other_tags_count) {
+			$tags = $tags;	
+		} else {
+			$tags = $other_tags;	
+		}
+		
+		//clean before returning...
+		
+		return $tags;
 	}
 
 
@@ -244,8 +271,12 @@ class Sweetcron {
 	        //conditionals depending on page type
 	        if ($type == 'index') {
 				$data->page_name = 'Home';
-		        $this->CI->page->SetItemCount($this->CI->item_model->count_all_items($public));        
-		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin);
+		        $this->CI->page->SetItemCount($this->CI->item_model->count_all_items($public));     
+		        if ($public) {   
+		        	$this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin);
+		        } else {
+		        	$this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin.'items/');
+		        }
 				$data->items = $this->CI->item_model->get_all_items($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $public);
 	        } elseif ($type == 'search') {
 				$data->page_name = 'Items Search';
