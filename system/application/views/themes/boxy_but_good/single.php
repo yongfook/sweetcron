@@ -21,7 +21,7 @@
                     <cite class="avatar"><img src="<?php echo $this->config->item('theme_folder')?>images/me.jpg" alt="" /></cite>
                     <div class="speech_tail"></div>
                     <div class="speech_bubble">
-                    <?=$item->get_title()?>
+                    <?=php echo $item->get_title()?>
                     </div>                
                 </div>
 

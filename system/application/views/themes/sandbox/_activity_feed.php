@@ -39,6 +39,6 @@
         <?php $i++; endforeach; endif; ?>
     </ul>
 
-    <p id="pagination"><?=$pages?></p>
+    <p id="pagination"><?php echo $pages?></p>
 
 </div>

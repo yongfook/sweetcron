@@ -19,10 +19,10 @@
 		<div class="center_box">
 	
 			<ul id="navigation">
-				<li<?php if (!$this->uri->segment(1) || $this->uri->segment(1) == 'items' || $this->uri->segment(1) == 'page'): ?> class="current"<?php endif; ?>><a href="<?=$this->config->item('base_url')?>" title="My Lifestream">Lifestream</a></li>
-				<li<?php if ($this->uri->segment(2) == 'contact'): ?> class="current"<?php endif; ?>><a href="<?=$this->config->item('base_url')?>p/contact/" title="Contact Me">Contact</a></li>
+				<li<?php if (!$this->uri->segment(1) || $this->uri->segment(1) == 'items' || $this->uri->segment(1) == 'page'): ?> class="current"<?php endif; ?>><a href="<?php echo $this->config->item('base_url')?>" title="My Lifestream">Lifestream</a></li>
+				<li<?php if ($this->uri->segment(2) == 'contact'): ?> class="current"<?php endif; ?>><a href="<?php echo $this->config->item('base_url')?>p/contact/" title="Contact Me">Contact</a></li>
 			</ul>
-			<h1><a href="<?=$this->config->item('base_url')?>"><?php echo $this->config->item('lifestream_title')?></a></h1>
+			<h1><a href="<?php echo $this->config->item('base_url')?>"><?php echo $this->config->item('lifestream_title')?></a></h1>
 		</div>
 	</div>
 	

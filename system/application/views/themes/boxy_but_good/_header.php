@@ -19,9 +19,9 @@
 		<div class="centerbox header">
 	
 			<ul id="navigation">
-				<li<?php if (!$this->uri->segment(1) || $this->uri->segment(1) == 'items' || $this->uri->segment(1) == 'page'): ?> class="current"<?php endif; ?>><a href="<?=$this->config->item('base_url')?>" title="My Lifestream">Lifestream</a></li>
-				<li<?php if ($this->uri->segment(2) == 'contact'): ?> class="current"<?php endif; ?>><a href="<?=$this->config->item('base_url')?>p/contact/" title="Contact Me">Contact</a></li>
-				<li id="rsslink"><a href="<?=$this->config->item('base_url')?>feed">RSS Feed</a></li>
+				<li<?php if (!$this->uri->segment(1) || $this->uri->segment(1) == 'items' || $this->uri->segment(1) == 'page'): ?> class="current"<?php endif; ?>><a href="<?php echo $this->config->item('base_url')?>" title="My Lifestream">Lifestream</a></li>
+				<li<?php if ($this->uri->segment(2) == 'contact'): ?> class="current"<?php endif; ?>><a href="<?php echo $this->config->item('base_url')?>p/contact/" title="Contact Me">Contact</a></li>
+				<li id="rsslink"><a href="<?php echo $this->config->item('base_url')?>feed">RSS Feed</a></li>
 			</ul>
 			<h1 id="tagline"><?php echo $this->config->item('lifestream_title')?></h1>
 		</div>
