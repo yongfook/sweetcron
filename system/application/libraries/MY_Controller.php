@@ -41,6 +41,7 @@ class Public_Controller extends Controller {
 
 		//load teh cronz lib
 	    $this->load->library('sweetcron');
+	    $this->sweetcron->compatibility_check();
 	    $this->sweetcron->integrity_check();
 
 	    //load other stuff
