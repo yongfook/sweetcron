@@ -52,7 +52,7 @@ class Feed_model extends Model {
 			return $feeds;
 			
 		} else {
-			return false;	
+			return array();	
 		}
 	}
 	

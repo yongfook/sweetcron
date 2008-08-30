@@ -48,7 +48,12 @@ class Tag_model extends Model {
 	
 	function get_all_tags($orderby = 'name', $limit = 10000)
 	{
-		return $this->_process($this->db->limit($limit)->order_by($orderby, 'desc')->get('tags')->result());	
+		$tags = $this->_process($this->db->limit($limit)->order_by($orderby, 'desc')->get('tags')->result());	
+		if ($tags) {
+			return $tags;
+		} else {
+			return array();	
+		}
 	}
 	
 }
