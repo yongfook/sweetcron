@@ -48,6 +48,7 @@
 <h4 class="side_title">Your Feeds</h4>
 <ul class="generic active_feeds">
 	<li style="background: transparent url(/favicon.ico) 0 center no-repeat;">
+	<?php if (isset($active_feeds[0])): ?>
 	<?php if (isset($site) && $site == 'sweetcron'): ?>
 	Sweetcron
 	<?php else: ?>
@@ -63,6 +64,7 @@
 	<?php endif; ?>
 	</li>
 	<?php endforeach; ?>
+	<?php endif; ?>
 </ul>
 
 <h4 class="side_title">Tags</h4>
