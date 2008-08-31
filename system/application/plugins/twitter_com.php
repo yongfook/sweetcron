@@ -6,9 +6,16 @@ class Twitter_com {
 
 	function pre_db($item)
 	{
-		//all we want to do before twitter stuff gets added to the db is to remove the username from the front of the title / content
-		$username = 'yongfook';
-		$item->item_title = str_replace($username.':', '', $item->item_title);
+		$twitter_username = 'yongfook';
+
+		//remove username from front of posts
+		$item->item_title = trim(str_replace($twitter_username.':', '', $item->item_title));
+
+		//filter out @replies (set as unpublished)
+		if (substr($item->item_title, 0, 1) == '@') {
+			$item->item_status = 'draft';		
+		}
+		
 		//remove item_content as it's just the same as the title anyway
 		$item->item_content = '';
 		return $item;

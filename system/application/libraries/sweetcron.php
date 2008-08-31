@@ -69,6 +69,7 @@ class Sweetcron {
 					$new->item_data['image'] = $this->get_image($item->get_content());
 					
 					//build out clean item
+					$new->item_status = 'publish';
 					$new->item_date = strtotime($item->get_date());
 					$new->item_title = trim(strip_tags($item->get_title()));
 					$new->item_permalink = $item->get_permalink();
