@@ -36,6 +36,16 @@
 </span>
 </p>
 
+<p><a href="#change_password" class="change_password<?php if ($this->validation->new_password_error || $this->validation->new_password_confirm_error):?> toggle"<?php endif; ?>">Change Password</a></p>
+
+<div id="change_password_container"<?php if ($this->validation->new_password_error || $this->validation->new_password_confirm_error):?> style="display: block;"<?php endif; ?>>
+<p><label class="title" for="feed_url_input">New Password</label>
+<input id="feed_url_input" type="password" class="text_input" name="new_password" value="<?php echo $this->input->post('new_password')?>" /></p>
+
+<p><label class="title" for="feed_url_input">New Password Confirm</label>
+<input id="feed_url_input" type="password" class="text_input" name="new_password_confirm" value="<?php echo $this->input->post('new_password_confirm')?>" /></p>
+</div>
+
 <div class="buttons">
     <button type="submit" class="positive">
     <img src="<?php echo $this->config->item('base_url')?>public/images/system/icons/silk/accept.png" alt="" />

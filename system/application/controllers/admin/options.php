@@ -55,8 +55,17 @@ class Options extends Auth_Controller {
 
 		if ($_POST) {
 			$this->load->library('validation');
-	        $rules['lifestream_title']	= "required";	
-	        $rules['admin_email']	= "required|valid_email";	
+			$fields['lifestream_title'] = 'Lifestream Title';
+			$fields['admin_email'] = 'Admin Email';
+			$fields['new_password'] = 'New Password';
+			$fields['new_password_confirm'] = 'New Password Confirm';
+			
+			$this->validation->set_fields($fields);
+
+	        $rules['lifestream_title']	= "trim|required";	
+	        $rules['admin_email']	= "trim|required|valid_email";	
+	        $rules['new_password']	= "trim|matches[new_password_confirm]";	
+	        $rules['new_password_confirm']	= "trim";	
 	        $this->validation->set_rules($rules);
 			if ($this->validation->run() == FALSE) {	
 				$data->errors = $this->validation->error_string;
@@ -64,6 +73,16 @@ class Options extends Auth_Controller {
 			    $this->load->view('admin/options', $data);
 		    	$this->load->view('admin/_footer');   			
 			} else {
+				//set new password if required
+				if ($this->validation->new_password && $this->validation->new_password != '') {
+					$password = md5($this->validation->new_password);
+					$this->db->update('users', array('user_pass' => $password), array('ID' => $this->data->user->ID));
+				}
+				//set admin email
+				$this->db->update('users', array('user_email' => $this->validation->admin_email), array('ID' => $this->data->user->ID));
+				
+				unset($_POST['new_password']);
+				unset($_POST['new_password_confirm']);
 				//save options
 				foreach ($_POST as $key => $value) {
 					$option_array[$key]->option_name = $key;	

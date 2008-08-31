@@ -87,6 +87,7 @@ class Install extends Controller {
 				$this->db->insert('users', $user);
 				
 				//send email
+				$url = $this->config->item('base_url');
 				$this->load->library('email');
 				
 				$this->email->from($this->validation->email, 'Sweetcron');
@@ -99,6 +100,8 @@ Your login details are as follows:
 
 Username: '.$this->validation->username.'
 Password: '.$password.'
+
+Your Sweetcron site: '.$url.'
 
 Thanks and have fun!');	
 				

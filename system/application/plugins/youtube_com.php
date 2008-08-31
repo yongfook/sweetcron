@@ -6,10 +6,14 @@ class Youtube_com {
 	
 	function pre_db($item)
 	{
+
 		//youtube stuffs the content with a bunch of things I don't want!
 		//so lets get rid of it...
 		$content = explode('Author:', $item->item_content);
 		$item->item_content = $content[0];
+		
+		//looky, youtube has an image too
+		$item->item_data['image'] = $item->item_data['enclosures'][0]->thumbnails[0];
 		return $item;
 	}
 	

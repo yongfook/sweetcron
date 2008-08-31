@@ -2,6 +2,11 @@ $(document).ready(function(){
 	
 	var base_url = $('input[name=base_url]').val();
 	
+	$('a.change_password').click(function(){
+		$('div#change_password_container').toggle();
+		$('a.change_password').toggleClass('toggle');
+		});
+	
 	//show all tags
 	$('a.show_all_tags').click(function(){
 		if ($('ul.tag_list.some').is(':visible')) {

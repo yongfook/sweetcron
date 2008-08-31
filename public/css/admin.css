@@ -488,6 +488,19 @@ ul.active_feeds li {
 	padding-left: 22px; 
 	margin-bottom: 5px;	
 }
+
+a.change_password {
+	background: transparent url(../images/system/icons/silk/bullet_arrow_right.png) 0 center no-repeat;
+	padding-left: 15px;	
+}
+
+a.change_password.toggle {
+	background: transparent url(../images/system/icons/silk/bullet_arrow_down.png) 0 center no-repeat;
+}
+
+div#change_password_container {
+	display: none;	
+}
     
 /* Buttons
 ---------------------------------------------------------------------------------------- */

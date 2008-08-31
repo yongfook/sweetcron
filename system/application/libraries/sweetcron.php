@@ -236,6 +236,7 @@ class Sweetcron {
 	function get_items_page($type = 'index', $current_page_num = 1, $public = FALSE, $query = NULL)
 	{
 
+        $data->blog_posts = $this->CI->item_model->get_items_by_feed_domain(0, 10, 'sweetcron', $public);
         $data->active_feeds = $this->CI->feed_model->get_active_feeds(TRUE);
 		$data->popular_tags = $this->CI->tag_model->get_all_tags('count', 50);
 		$data->all_tags = $this->CI->tag_model->get_all_tags('count');
