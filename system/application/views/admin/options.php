@@ -14,7 +14,7 @@
 
 <p><label class="title" for="feed_url_input">Items Per Page</label>
 <span class="option_container">
-<span class="option"><input type="text" name="per_page" value="<?php echo $this->config->item('per_page')?>" size="5" /> Doesn't affect admin area</span>
+<span class="option"><input type="text" name="per_page" value="<?php echo $this->config->item('per_page')?>" size="5" /></span>
 </span>
 </p>
 
