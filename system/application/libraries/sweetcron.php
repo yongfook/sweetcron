@@ -38,7 +38,7 @@ class Sweetcron {
 	
     function __construct() {
     	$this->CI =& get_instance();
-    	$this->CI->config->set_item('sweetcron_version', '1.08');
+    	$this->CI->config->set_item('sweetcron_version', '1.08a');
     }
 	
 	function fetch_items()
