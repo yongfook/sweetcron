@@ -9,7 +9,7 @@
 | For more info visit:  http://www.php.net/error_reporting
 |
 */
-	error_reporting(E_ERROR | E_WARNING | E_PARSE);
+	//error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 /*
 |---------------------------------------------------------------

@@ -44,8 +44,6 @@ class Item_model extends Model {
 	function _process($items, $return_single = FALSE)
 	{
 		if ($items) {
-			$this->load->file(BASEPATH.'/application/libraries/sweetcron_item.php');
-			$this->load->file(BASEPATH.'/application/libraries/markdown.php');
 			foreach ($items as $key => $value) {
 				$new_item = new Sweetcron_item;
 				

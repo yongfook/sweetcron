@@ -41,10 +41,12 @@ class Public_Controller extends Controller {
 
 		//load teh cronz lib
 	    $this->load->library('sweetcron');
+	    $this->load->file(BASEPATH.'/application/libraries/sweetcron_item.php');
 	    $this->sweetcron->compatibility_check();
 	    $this->sweetcron->integrity_check();
 
 	    //load other stuff
+	    $this->load->file(BASEPATH.'/application/libraries/markdown.php');
 	    $this->load->helper('text');
 	    $this->load->helper('url');
 	    $this->load->library('simplepie');
