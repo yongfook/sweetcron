@@ -8,7 +8,11 @@
 	<div class="content"><?php echo $item->get_content()?></div>
 	<?php endif; ?>
 	<?php if ($item->has_image() && !$item->has_video()): ?>
+	<?php if (isset($item->item_data[$item->get_feed_class()]['image']['500']) && !empty($item->item_data[$item->get_feed_class()]['image']['500'])): ?>
+	<p><img src="<?php echo $item->item_data[$item->get_feed_class()]['image']['500']?>" alt="" /></p>
+	<?php else: ?>
 	<p><img src="<?php echo $item->get_image()?>" alt="" /></p>
+	<?php endif; ?>
 	<?php endif; ?>
 	<?php if ($item->has_video()): ?>
 	<div>
