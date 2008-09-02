@@ -43,8 +43,8 @@
     <div id="single_container" class="photo">
             <div class="activity_list_inner">
             <span class="type_label photo"></span>
-	<?php if (isset($item->item_data[$item->get_feed_class()]['image']['500']) && !empty($item->item_data[$item->get_feed_class()]['image']['500'])): ?>
-	<img src="<?php echo $item->item_data[$item->get_feed_class()]['image']['500']?>" alt="" class="activity_photo"/>
+	<?php if (isset($item->item_data[$item->get_feed_class()]['image']['m']) && !empty($item->item_data[$item->get_feed_class()]['image']['m'])): ?>
+	<img src="<?php echo $item->item_data[$item->get_feed_class()]['image']['m']?>" alt="" class="activity_photo"/>
 	<?php else: ?>
 	<img src="<?php echo $item->get_image()?>" alt="" class="activity_photo"/>
 	<?php endif; ?>

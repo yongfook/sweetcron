@@ -21,9 +21,9 @@ class Flickr_com {
 	
 	function pre_display($item)
 	{
-		$item->item_data['flickr_com']['image']['500'] = substr($item->item_data['image'], 0, -6).'.jpg';
-		$item->item_data['flickr_com']['image']['1024'] = substr($item->item_data['image'], 0, -5).'b.jpg';
-		$item->item_data['flickr_com']['image']['original'] = substr($item->item_data['image'], 0, -5).'o.jpg';
+		$item->item_data['flickr_com']['image']['m'] = substr($item->item_data['image'], 0, -6).'.jpg';
+		$item->item_data['flickr_com']['image']['l'] = substr($item->item_data['image'], 0, -5).'b.jpg';
+		$item->item_data['flickr_com']['image']['o'] = substr($item->item_data['image'], 0, -5).'o.jpg';
 		return $item;
 	}
 
