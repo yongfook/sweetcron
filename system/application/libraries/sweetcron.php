@@ -43,8 +43,10 @@ class Sweetcron {
 	
 	function fetch_items()
 	{
-		//requires php to not be running in "safe mode"
-		set_time_limit(0);
+		if(!ini_get('safe_mode')){
+			//requires php to not be running in "safe mode"
+			set_time_limit(0);
+		}
 		//soz
 		$option->option_name = 'last_fetch';
 		$option->option_value = time();
@@ -233,7 +235,7 @@ class Sweetcron {
 		}
 	}
 	
-	function get_items_page($type = 'index', $current_page_num = 1, $public = FALSE, $query = NULL)
+	function get_items_page($type = 'index', $current_page_num = 1, $public = FALSE, $query = NULL, $rss_filter = NULL)
 	{
 
         $data->blog_posts = $this->CI->item_model->get_items_by_feed_domain(0, 10, 'sweetcron', $public);
@@ -243,7 +245,19 @@ class Sweetcron {
 		$data->page_type = $type;
 		
 		if ($type == 'rss_feed') {
-			$data->items = $this->CI->item_model->get_all_items(0, 20, $public);
+			if (!$rss_filter) {
+				$data->page_name = '';
+				$data->items = $this->CI->item_model->get_all_items(0, 20, $public);
+			} elseif ($rss_filter == 'tag') {
+				$data->page_name = '- tagged with '.$query;
+				$data->items = $this->CI->item_model->get_items_by_tag(0, 20, $query, $public);
+			} elseif ($rss_filter == 'search') {
+				$data->page_name = '- search for '.$query;
+				$data->items = $this->CI->item_model->get_items_by_search(0, 20, $query, $public);
+			} elseif ($rss_filter == 'site') {
+				$data->page_name = '- imported from '.$query;
+				$data->items = $this->CI->item_model->get_items_by_feed_domain(0, 20, $query, $public);
+			}
 			$this->CI->load->view('themes/'.$this->CI->config->item('theme').'/rss_feed', $data);
 		} elseif ($type == 'static_page') {
 			

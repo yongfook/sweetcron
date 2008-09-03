@@ -1,6 +1,6 @@
 <rss version="2.0">
    <channel>
-      <title><?php echo $this->config->item('lifestream_title')?></title>
+      <title><?php echo $this->config->item('lifestream_title')?> <?php echo $page_name?></title>
       <link><?php echo $this->config->item('base_url')?>feed</link>
       <description></description>
       <language>en-us</language>
@@ -11,9 +11,16 @@
       <item>
          <title><?php echo $item->get_title()?></title>
          <link><?php echo $item->get_permalink()?></link>
-         <description><![CDATA[<?php echo $item->get_content()?>]]></description>
+         <description><![CDATA[<div><?php echo $item->get_content()?>
+            	<?php if ($item->has_image() && !$item->has_video()): ?>
+            	<img src="<?php echo $item->get_image()?>" alt="" />
+            	<?php endif; ?>
+            	<?php if ($item->has_video()): ?>
+            	<?php echo $item->get_video()?>
+            	<?php endif; ?>
+         </div>]]></description>
          <pubDate><?php echo date('r', $item->get_date())?></pubDate>
-         <guid><?php echo $item->get_original_permalink()?></guid>
+         <guid><?php echo $item->get_permalink()?></guid>
       </item>
       <?php endforeach; ?>
    </channel>

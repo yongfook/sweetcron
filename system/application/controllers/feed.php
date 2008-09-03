@@ -45,5 +45,32 @@ class Feed extends Public_Controller {
 	{
 		$this->sweetcron->get_items_page('rss_feed', 1, TRUE);
 	}
+	
+	function search($query = NULL)
+	{	
+		if ($query) {	
+			$this->sweetcron->get_items_page('rss_feed', 1, TRUE, $query, 'search');
+		} else {
+			header('Location: '.$this->config->item('base_url'));
+		}
+	}
+
+	function tag($tag = NULL)
+	{
+		if ($tag) {
+			$this->sweetcron->get_items_page('rss_feed', 1, TRUE, $tag, 'tag');
+		} else {
+			header('Location: '.$this->config->item('base_url'));			
+		}
+	}
+
+	function site($feed_domain = NULL)
+	{
+		if ($feed_domain) {
+			$this->sweetcron->get_items_page('rss_feed', 1, TRUE, $feed_domain, 'site');
+		} else {
+			header('Location: '.$this->config->item('base_url'));			
+		}
+	}
 }
 ?>
