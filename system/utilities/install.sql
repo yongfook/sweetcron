@@ -1,4 +1,4 @@
-CREATE TABLE `feeds` (
+CREATE TABLE `%DB_PREFIX%feeds` (
   `feed_id` int(11) NOT NULL auto_increment,
   `feed_title` text collate utf8_unicode_ci NOT NULL,
   `feed_icon` varchar(255) collate utf8_unicode_ci NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE `feeds` (
   KEY `feed_status` (`feed_status`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `items` (
+CREATE TABLE `%DB_PREFIX%items` (
   `ID` bigint(20) unsigned NOT NULL auto_increment,
   `item_date` bigint(20) NOT NULL,
   `item_content` longtext NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE `items` (
   FULLTEXT KEY `item_title` (`item_title`,`item_content`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
-CREATE TABLE `options` (
+CREATE TABLE `%DB_PREFIX%options` (
   `option_id` bigint(20) NOT NULL auto_increment,
   `option_name` varchar(64) NOT NULL default '',
   `option_value` longtext NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `options` (
   KEY `option_name` (`option_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tags` (
+CREATE TABLE `%DB_PREFIX%tags` (
   `tag_id` bigint(20) NOT NULL auto_increment,
   `name` varchar(55) NOT NULL default '',
   `slug` varchar(200) NOT NULL default '',
@@ -45,13 +45,13 @@ CREATE TABLE `tags` (
   UNIQUE KEY `slug` (`slug`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
-CREATE TABLE `tag_relationships` (
+CREATE TABLE `%DB_PREFIX%tag_relationships` (
   `item_id` bigint(20) NOT NULL default '0',
   `tag_id` bigint(20) NOT NULL default '0',
   PRIMARY KEY  (`item_id`,`tag_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE `users` (
+CREATE TABLE `%DB_PREFIX%users` (
   `ID` bigint(20) unsigned NOT NULL auto_increment,
   `user_login` varchar(60) NOT NULL default '',
   `user_pass` varchar(64) NOT NULL default '',

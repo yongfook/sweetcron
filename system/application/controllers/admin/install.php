@@ -47,7 +47,7 @@ class Install extends Controller {
 		$this->sweetcron->compatibility_check();
 		$this->sweetcron->install_check();
 		$data->page_name = 'Install';
-		
+
 		if ($_POST) {
 			$this->load->library('validation');
 	        $rules['lifestream_title']	= "trim|required";	
@@ -59,6 +59,7 @@ class Install extends Controller {
 			} else {
 				$this->load->helper('file');
 				$sql = read_file(BASEPATH.'utilities/install.sql');
+				$sql = str_replace('%DB_PREFIX%', $this->db->dbprefix, $sql);
 				$sql = explode('CREATE', $sql);
 				unset($sql[0]);
 				//install sql and pray to baby jebus				   
