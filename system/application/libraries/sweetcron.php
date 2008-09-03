@@ -59,35 +59,40 @@ class Sweetcron {
 				$this->CI->simplepie->enable_cache(FALSE);
 				$this->CI->simplepie->init();
 				$items = $this->CI->simplepie->get_items();
-				foreach ($items as $item) {
-
-					$new->item_data = array();
-					$new->item_data['title'] = $item->get_title();
-					$new->item_data['permalink'] = $item->get_permalink();
-					$new->item_data['content'] = $item->get_content();
-					$new->item_data['enclosures'] = $item->get_enclosures();
-					$new->item_data['categories'] = $item->get_categories();							
-					$new->item_data['tags'] = $this->get_tags($new->item_data);							
-					$new->item_data['image'] = $this->get_image($item->get_content());
-					
-					//build out clean item
-					$new->item_status = 'publish';
-					$new->item_date = strtotime($item->get_date());
-					$new->item_title = trim(strip_tags($item->get_title()));
-					$new->item_permalink = $item->get_permalink();
-					$new->item_content = trim(strip_tags($item->get_content()));
-					$new->item_name = url_title($new->item_title);
-					$new->item_feed_id = $feed->feed_id;
-												
-					$new = $this->extend('pre_db', $feed->feed_domain, $new);
-	
-					//and add
-					$this->CI->item_model->add_item($new);
-	
-				}
+				$this->add_new_items($items, $feed);
 		    }
         }
             
+	}
+
+	function add_new_items($items, $feed)
+	{
+		foreach ($items as $item) {
+		
+			$new->item_data = array();
+			$new->item_data['title'] = $item->get_title();
+			$new->item_data['permalink'] = $item->get_permalink();
+			$new->item_data['content'] = $item->get_content();
+			$new->item_data['enclosures'] = $item->get_enclosures();
+			$new->item_data['categories'] = $item->get_categories();							
+			$new->item_data['tags'] = $this->get_tags($new->item_data);							
+			$new->item_data['image'] = $this->get_image($item->get_content());
+			
+			//build out clean item
+			$new->item_status = 'publish';
+			$new->item_date = strtotime($item->get_date());
+			$new->item_title = trim(strip_tags($item->get_title()));
+			$new->item_permalink = $item->get_permalink();
+			$new->item_content = trim(strip_tags($item->get_content()));
+			$new->item_name = url_title($new->item_title);
+			$new->item_feed_id = $feed->feed_id;
+										
+			$new = $this->extend('pre_db', $feed->feed_domain, $new);
+		
+			//and add
+			$this->CI->item_model->add_item($new);
+		
+		}		
 	}
 	
 	function pseudo_cron()
@@ -310,6 +315,8 @@ class Sweetcron {
 		        $this->CI->page->SetLinksHref($this->CI->config->item('base_url').$admin.'items/site/'.$query.'/');
 				$data->items = $this->CI->item_model->get_items_by_feed_domain($this->CI->page->GetOffset(), $this->CI->page->GetSqlLimit(), $query, $public);        
 	        }
+
+			$data->page_query = $query;
 	
 			if ($query && $type == 'search') {
 				$data->query = $query;

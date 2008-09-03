@@ -235,8 +235,9 @@ class Item_model extends Model {
 
 	function add_item($item = NULL)
 	{
+
 		//we assume that if an item has the exact same timestamp and origin as one in the db, it's a dupe
-		if (!$this->db->join('feeds', 'feeds.feed_id = '.$item->item_feed_id)->get_where('items', array('item_date' => $item->item_date))->row()) {
+		if (!$this->db->join('feeds', 'feeds.feed_id = items.item_feed_id')->get_where('items', array('item_feed_id' => $item->item_feed_id, 'item_date' => $item->item_date))->row()) {
 			$tags = $item->item_data['tags'];
 			$item->item_data = serialize($item->item_data);
 			$this->db->insert('items', $item);
