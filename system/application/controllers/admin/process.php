@@ -47,6 +47,8 @@ class Process extends Auth_Controller {
           //strip out stuff and send to page
           $keywords = urlencode($this->input->post('keywords'));
           header('Location: '.$this->config->item('base_url').'admin/items/search/'.$keywords);
+      } else {
+		  show_error('You must type some keywords to search');             
       }
 	}
 

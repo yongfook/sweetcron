@@ -221,7 +221,9 @@ class Sweetcron {
 			//strip out stuff and send to page
 			$query = urlencode($this->CI->input->post('query'));
 			header('Location: '.$this->CI->config->item('base_url').'items/search/'.$query);
-		}		
+		} else {
+		    show_error('You must type some keywords to search');   
+        }
 	}
 	
 	function get_single_item_page($item_id = NULL)
