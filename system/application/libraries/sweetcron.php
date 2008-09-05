@@ -86,8 +86,8 @@ class Sweetcron {
 			$new->item_content = trim(strip_tags($item->get_content()));
 			$new->item_name = url_title($new->item_title);
 			$new->item_feed_id = $feed->feed_id;
-										
-			$new = $this->extend('pre_db', $feed->feed_domain, $new);
+						
+			$new = $this->extend('pre_db', $feed->feed_domain, $new, $item);
 		
 			//and add
 			$this->CI->item_model->add_item($new);
@@ -107,7 +107,7 @@ class Sweetcron {
 	    }		
 	}
 	
-	function extend($method = 'pre_db', $feed_domain = NULL, $item = NULL)
+	function extend($method = 'pre_db', $feed_domain = NULL, $item = NULL, $simplepie_object = NULL)
 	{
 		//we can extend what sweetcron does at various points in the import / output process by using plugin architecture
 		//see system/applications/plugins for example plugins
@@ -120,7 +120,7 @@ class Sweetcron {
 					include(BASEPATH.'application/plugins/'.$class.'.php');
 				}
 				$plugin = new $class;
-				return $plugin->$method($item);
+				return $plugin->$method($item, $simplepie_object);
 			} else {
 				return $item;	
 			}

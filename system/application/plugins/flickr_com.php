@@ -4,7 +4,7 @@ class Flickr_com {
 	
 	//sample class for flickr
 
-	function pre_db($item)
+	function pre_db($item, $original)
 	{
 	    $flickr_username = 'yongfook';
 		$remove_this = $flickr_username.' posted a photo:';

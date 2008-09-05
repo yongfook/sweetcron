@@ -4,7 +4,7 @@ class Vimeo_com {
 	
 	//sample class for vimeo
 
-	function pre_db($item)
+	function pre_db($item, $original)
 	{
 		return $item;
 	}

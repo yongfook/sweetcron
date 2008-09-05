@@ -4,7 +4,7 @@ class Twitter_com {
 	
 	//sample class for twitter
 
-	function pre_db($item)
+	function pre_db($item, $original)
 	{
 		$twitter_username = 'yongfook';
 

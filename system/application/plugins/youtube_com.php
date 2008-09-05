@@ -4,7 +4,7 @@ class Youtube_com {
 	
 	//sample class for youtube
 	
-	function pre_db($item)
+	function pre_db($item, $original)
 	{
 
 		//youtube stuffs the content with a bunch of things I don't want!

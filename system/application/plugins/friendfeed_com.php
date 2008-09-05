@@ -4,7 +4,7 @@ class Friendfeed_com {
 	
 	//sample class for friendfeed
 
-	function pre_db($item)
+	function pre_db($item, $original)
 	{
 		return $item;
 	}
