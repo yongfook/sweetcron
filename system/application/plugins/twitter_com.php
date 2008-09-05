@@ -6,7 +6,9 @@ class Twitter_com {
 
 	function pre_db($item, $original)
 	{
-		$twitter_username = 'yongfook';
+        $original_publisher = $original->get_permalink();
+		$twitter_username = explode('/', $original_publisher);
+		$twitter_username = $twitter_username[3];
 
 		//remove username from front of posts
 		$item->item_title = trim(str_replace($twitter_username.':', '', $item->item_title));
