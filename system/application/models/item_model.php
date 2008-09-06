@@ -217,14 +217,20 @@ class Item_model extends Model {
 
 	function get_items_by_feed_domain($offset = 0, $limit = 10, $feed_domain, $public = FALSE)
 	{
+		$url = parse_url($this->config->item('base_url'));
+		if (substr($url['host'], 0, 4) == 'www.') {
+			$domain = substr($url['host'], 4);
+		} else {
+			$domain = $url['host'];					
+		}		
 		if ($public) {
-			if ($feed_domain == 'sweetcron') {
+			if ($feed_domain == 'sweetcron' || $feed_domain == $domain) {
 				$where = array('item_status' => 'publish', 'item_feed_id' => 0);
 			} else {
 				$where = array('item_status' => 'publish', 'feed_domain' => $feed_domain);
 			}
 		} else {
-			if ($feed_domain == 'sweetcron') {
+			if ($feed_domain == 'sweetcron' || $feed_domain == $domain) {
 				$where = array('item_status !=' => 'deleted', 'item_feed_id' => 0);
 			} else {
 				$where = array('item_status !=' => 'deleted', 'feed_domain' => $feed_domain);
