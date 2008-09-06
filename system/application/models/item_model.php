@@ -55,7 +55,6 @@ class Item_model extends Model {
 				$new_item->feed_data = $items[$key]->feed_data;	
 				$new_item->feed_status = $items[$key]->feed_status;	
 				$new_item->feed_domain = $items[$key]->feed_domain;	
-				$new_item->feed_class = str_replace('.','_',$new_item->feed_domain);	
 
 				//standard item components
 				$new_item->ID = $items[$key]->ID;	
@@ -75,8 +74,15 @@ class Item_model extends Model {
 				//make adjustments if blog post
 				if (!$items[$key]->feed_id) {
 				    $new_item->feed_icon = '/favicon.ico';
-				    $new_item->feed_domain = $this->config->item('base_url');
+					$url = parse_url($this->config->item('base_url'));
+					if (substr($url['host'], 0, 4) == 'www.') {
+						$new_item->feed_domain = substr($url['host'], 4);
+					} else {
+						$new_item->feed_domain = $url['host'];					
+					}
                 }
+
+				$new_item->feed_class = str_replace('.','_',$new_item->feed_domain);	
 				
 				//extended item components
 				if ($new_item->feed_id) {
