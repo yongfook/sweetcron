@@ -11,8 +11,7 @@
 		<link rel="stylesheet" href="<?php echo $this->config->item('base_url')?>public/css/reset.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php echo $this->config->item('theme_folder')?>main.css" type="text/css" media="screen" />
 		<?php if ($page_type == 'index' || !$page_type): ?>
-		<link rel="alternate" type="application/rss+xml" title="Full RSS Feed" href="http://feeds.feedburner.com/yongfook" />
-		<link rel="alternate" type="application/rss+xml" title="Blog-only RSS Feed" href="http://feeds.feedburner.com/yongfookblog" />
+		<link rel="alternate" type="application/rss+xml" title="Full RSS Feed" href="<?php echo $this->config->item('base_url')?>feed" />
 		<?php else: ?>
 		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php echo $this->config->item('base_url')?>feed/<?php echo $page_type?>/<?php echo $page_query?>" />
 		<?php endif; ?>
