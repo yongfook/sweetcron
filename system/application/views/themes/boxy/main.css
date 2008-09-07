@@ -1,9 +1,10 @@
-/* Sweetcron Sandbox CSS - 28/08/08
+/* Sweetcron Boxy CSS - 08/09/2008
 
 	Table of Contents:
 	Reset
 	Typography
 	Positioning
+	Per-Domain Styling
 	IE Fixes
 	3rd Party
 			
@@ -391,7 +392,7 @@ li.activity_item {
 	clear: both;	
 }
 
-/* Per Domain Styling
+/* Per-Domain Styling
 ---------------------------------------------------------------------------------------- */
 
 li.item.flickr_com {
