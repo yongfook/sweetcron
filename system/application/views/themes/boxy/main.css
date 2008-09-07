@@ -1,0 +1,566 @@
+/* Sweetcron Sandbox CSS - 28/08/08
+
+	Table of Contents:
+	Reset
+	Typography
+	Positioning
+	IE Fixes
+	3rd Party
+			
+*/
+
+/* Reset
+---------------------------------------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* now I'm working with a clean slate! */
+
+
+/* Typography
+---------------------------------------------------------------------------------------- */
+
+body {
+	font-family: "Lucida Grande", Arial, Helvetica, sans serif;
+	font-size: 12px;
+	color: #000;
+	line-height: 1.7em;
+}	
+
+ul#activity_list li.item.yongfook_com div.item_inner {
+	font-family: Georgia, 'Times New Roman', Times, serif;	
+}
+
+h1 {
+    font-size: 28px;   
+}
+
+a {
+	color: #3399ff;
+}
+
+a:hover {
+	color: #003399;
+}
+
+div#aboutme h3 {
+	color: #333;	
+}
+
+ul#navigation li.current a, ul#navigation li a:hover {
+	color: black;	
+}
+
+ul#activity_list li.item p.date, p.original_link a, p.activity_image_text span, p.site_info a, div#aboutme, p.blog_cite, div#single_header p, ul#navigation li a, p.osf_recipe {
+	color: #999;	
+}
+
+p.vimeo_title a, li.item.digg_com div.item_inner a, ul#activity_list li.item.youtube_com div.item_inner a, p.osf_recipe a, div#header h1 a {
+	color: white;	
+}
+
+ul#activity_list li.item.youtube_com div.item_inner {
+	color: #fd8585;	
+}
+
+li.item.digg_com div.item_inner {
+	color: #7698b7;
+}	
+
+div#explanation {
+    color: #999933;
+}
+
+div#explanation strong {
+    color: #666633;
+}
+
+input.text_input {
+	font-size: 13px;	
+}
+
+h2, div#explanation, div#single_container, ul#navigation li, p.osf_recipe {
+    font-size: 15px;   
+}
+
+p#pagination, ul#activity_list li.item.yongfook_com div.item_inner, div#single_container h3, div#single_container h4, div#single_container h5 {
+	font-size: 20px;
+}	
+
+div#single_container h2 {
+	font-size: 25px;	
+}
+
+ul#activity_list li.item p.date {
+	font-size: 9px;	
+}
+
+p.blog_cite, p.site_info, p.date, p.original_link, p.activity_image_text, div#aboutme, div#footer, ul#activity_list li.item.youtube_com div.item_inner, p.osf_recipe span {
+    font-size: 10px;   
+}
+
+p.activity_image_text a, p.twitter_tweet, p.vimeo_title, li.item.digg_com div.item_inner a, div#explanation strong, p#pagination, ul#activity_list li.item.youtube_com div.item_inner a, ul#activity_list li.item.yongfook_com div.item_inner, div#single_header, div#single_container strong, ul.item_tag_list, ul#navigation li, p.osf_recipe, div.instructions strong {
+	font-weight: bold;	
+}
+
+ul#activity_list li.item.yongfook_com div.item_inner p.blog_cite {
+	font-weight: normal;	
+}
+
+p.original_link a, p.activity_image_text a, p.site_info a, p.vimeo_title a, li.item.digg_com div.item_inner a, ul#activity_list li.item.youtube_com div.item_inner a, ul#navigation li a, p.osf_recipe a, div#header h1 a {
+    text-decoration: none;   	
+}
+
+p.original_link a:hover, p.activity_image_text a:hover, li.item.digg_com div.item_inner a:hover {
+	text-decoration: underline;	
+}
+
+p.vimeo_title, ul#activity_list li.item.youtube_com div.item_inner, ul#activity_list li.item.yongfook_com div.item_inner {
+	text-align: center;	
+}
+
+div#single_header h2 {
+	line-height: 1.1em;	
+}
+
+p.activity_image_text {
+	line-height: 1.5em;	
+}
+
+p.twitter_tweet, div#aboutme, ul#activity_list li.item.youtube_com div.item_inner {
+	line-height: 1.6em;	
+}
+
+
+/* Positioning
+---------------------------------------------------------------------------------------- */
+
+body {
+    background: white;   
+}
+
+div.center_box {
+    width: 980px;
+    margin: 0 auto;   
+    position: relative;
+}
+
+div#header {
+	background: #99ccff;
+}
+
+div#header div.center_box {
+	height: 150px;	
+}
+
+div#header h1 {
+	position: absolute;
+	top: 50px;
+	left: 0;
+}
+
+div#header h1 a {
+	border: 1px solid #b8dbfe;
+	border-style: none none solid none;	
+}
+
+div#header h1 a:hover {
+	border: 1px solid white;
+	border-style: none none solid none;		
+}
+
+ul#navigation {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}   
+
+ul#navigation li {
+    float: left;
+    margin-right: 1px;   
+}
+
+ul#navigation li a {
+	float: left;
+	padding: 8px 15px;
+	background: white url(images/blogback.jpg) bottom left no-repeat;
+}
+
+ul#navigation li.current a {
+	background: white;	
+}
+
+div#main_container {
+	margin: 15px 0 0 0;
+    width: 663px; 
+    float: left;
+}
+
+div#sidebar_container {
+    display: inline;
+    width: 300px;
+    float: left;
+    margin: 15px 0 0 15px;
+}
+    
+p.site_info {
+    padding: 3px 3px 3px 22px;   
+}
+
+ul#activity_list {
+	float: left;	
+}
+
+ul#activity_list li.item {
+    width: 211px;
+    margin: 0 15px 15px 0;
+    float: left;
+    overflow: hidden;
+}
+
+div.item_inner {
+	border: 1px solid #CCC;	
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+ul#activity_list li.item.last {
+	margin-right: 0;	
+}
+
+li.item img, div#single_container img {
+    display: block;
+}
+
+ul.item_tag_list li {
+    display: inline;   
+}
+
+div.clear {
+	clear: both;	
+}
+
+p#breadcrumb, p#pagination {
+    margin-bottom: 15px; 
+    padding: 3px;  
+    border: 1px solid #CCC;
+    border-style: dotted none;
+}
+
+p#pagination {
+	padding: 10px 0;	
+}
+
+div#sidebar_container h3 {
+    border: 1px solid #CCC;
+    border-style: none none solid none;
+    margin: 10px 0 5px 0;   
+}
+
+div#sidebar_container div#aboutme_blurb h3 {
+	margin-top: 0;	
+	border: none;
+}
+
+ul.tag_list li {
+    display: inline;
+    margin: 0 5px 0 0;   
+}
+
+div#comments_container {
+    border: 1px solid #EEE;
+    border-style: solid none none none;
+    padding: 10px 0;
+    margin-top: 20px;   
+}
+
+div.ad_container img {
+	display: block;	
+}
+
+div.ad_container.bottom { 
+	margin: 15px 0;
+}
+
+form#search_form {
+	margin: 8px 0 0 0;	
+}
+
+form#mailing_list {
+    margin-top: 15px;
+    background: white url(images/mailinglist.gif) 0 0 no-repeat;
+    border: 1px solid #CCC;
+}
+
+form#mailing_list p {
+    padding: 70px 10px 10px 10px;   
+}
+
+input.text_input {
+    background: #FFFFCC;
+    width: 180px;   
+}
+
+div#explanation {
+    background: #FFFFCC;
+    padding: 10px;
+    margin: 15px 0;
+}
+
+div#aboutme_blurb {
+    width: 180px;
+    border: 1px solid #EEE;
+    border-style: none solid none none;
+    padding: 0 15px 0 0;
+    float: left;
+    margin-right: 15px;
+}
+
+div#aboutme ul {
+    list-style-type: disc;
+}
+
+div#aboutme ul li {
+    padding-bottom: 5px;
+}
+
+div#aboutme h3, div#aboutme ul, div#aboutme p {
+    margin-left: 20px;
+}
+
+div#aboutme h3 {
+    margin-bottom: 5px;
+}
+
+p.sidebar_small_banner img {
+    display: block;
+    margin-bottom: 10px;
+}
+
+div#footer {
+    clear: both;
+}
+
+div#footer {
+    background: #EEE;
+    padding: 8px;
+    position: relative;
+}
+
+a#credits {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+}
+
+div#single_header {
+	padding: 10px 0 15px 0;	
+}
+
+div#single_content p, div#single_container object, div#single_container img, div#single_container ul, div#single_container ol {
+	margin-bottom: 15px;	
+}
+
+div#single_container img {
+	border: 1px solid #CCC;
+	padding: 5px;	
+}
+
+div#single_container h3, div#single_container h4, div#single_container h5 {
+	border: 1px solid #CCC;
+	border-style: none none dotted none;	
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+	margin-top: 25px;
+}
+
+p#original_permalink span {
+	background: #FFFFCC;	
+}
+
+div.activity_list_inner img {
+	float: left;
+	margin-right: 10px;	
+}
+
+li.activity_item {
+	clear: both;	
+}
+
+/* Per Domain Styling
+---------------------------------------------------------------------------------------- */
+
+li.item.flickr_com {
+	background: white url(images/flickrlogo.gif) center center no-repeat;
+}
+
+li.item.flickr_com p.site_info {
+	background: blue;	
+}
+
+li.item.vimeo_com div.item_inner {
+	background: #80ceff url(images/vimeoback.jpg) bottom center no-repeat;
+}
+
+li.item.vimeo_com div.item_inner object {
+	border: 1px solid white;
+	border-style: none none solid none;	
+}
+
+ul#activity_list li.item.twitter_com div.item_inner {
+	background: url(images/twitterback.jpg);	
+}
+
+p.vimeo_title a {
+	border: 1px solid #a7dafa;
+	border-style: none none solid none;	
+}
+
+p.vimeo_title a:hover {
+	border: 1px solid white;
+	border-style: none none solid none;
+}
+
+p.twitter_user {
+	margin: 10px 0 0 10px;	
+	padding-bottom: 10px;
+	background: transparent url(images/twittertail.gif) bottom 60px no-repeat;
+}
+
+p.twitter_user img {
+	display: block;
+	border: 1px solid #999;
+}
+
+p.twitter_tweet {
+	background: white;
+	padding: 8px 10px;
+	overflow: hidden;	
+	background: white url(images/twitterdither.gif) bottom left repeat-x;
+	border: 1px solid #DDD;
+	border-style: none none solid none;
+	margin: 0 10px;
+}
+
+ul#activity_list li.item.digg_com div.item_inner {
+	background: #1b5790 url(images/diggback.gif) bottom right no-repeat;	
+}
+
+li.item.digg_com div.item_inner a {
+	border: 1px solid #7698b7;
+	border-style: none none dotted none;
+	display: block;	
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+div.inner_container {
+	padding: 8px 10px;
+}	
+
+ul#activity_list li.item.youtube_com div.item_inner {
+	background: #FE3333 url(images/youtubeback.gif) bottom left repeat-x;
+}
+
+ul#activity_list li.item.youtube_com div.item_inner object {
+	border: 1px solid white;
+	border-style: none none solid none;	
+	margin-bottom: 7px;
+}
+
+ul#activity_list li.item.youtube_com div.item_inner p {
+	padding: 0 10px;	
+}
+
+ul#activity_list li.item.youtube_com div.item_inner a {
+	border: 1px solid #f07777;
+	border-style: none none solid none;	
+}
+
+ul#activity_list li.item.youtube_com div.item_inner a:hover {
+	border: 1px solid white;
+	border-style: none none solid none;	
+}
+
+ul#activity_list li.item.yongfook_com div.item_inner {
+	background: white url(images/blogback.jpg) bottom left no-repeat;
+}
+
+p.blog_title, p.blog_cite {
+	margin: 15px 0 20px 0;	
+}
+
+ul#activity_list li.item.yongfook_com div.item_inner img {
+	display: inline;	
+}
+
+li.item.opensourcefood_com img {
+	position: absolute;	
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+}
+
+div.osf_fold a {
+    height: 250px;
+    width: 211px;
+	background: transparent url(images/osfback.png) bottom right no-repeat;
+	z-index: 1000;
+	position: absolute;	
+}
+
+p.osf_recipe {
+	position: absolute;
+	z-index: 1001;
+	top: 10px;
+	left: 10px;	
+	width: 190px;
+}
+
+p.osf_recipe a {
+	border: 1px solid #333;
+	border-style: none none solid none;
+}
+
+p.osf_recipe a:hover {
+	border: 1px solid white;
+	border-style: none none solid none;
+}
+
+p.osf_recipe span {
+	margin-top: 3px;
+	display: block;	
+	width: 180px;
+}
+
+a.activity_image {
+	display: block;
+	height: 250px;	
+}
+
+p.activity_image_text {
+	position: absolute;
+	top: 0;	
+	padding: 3px 5px;
+	background: black;	
+}
+
+div.instructions code {
+	background: #FFFFCC;	
+}
+
+
+/* IE Fixes (lulz)
+---------------------------------------------------------------------------------------- */
+
+body {
+	word-wrap: break-word;	
+}
+
+
+/* 3rd Party
+---------------------------------------------------------------------------------------- */

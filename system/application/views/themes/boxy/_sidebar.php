@@ -17,8 +17,7 @@
 
     <h3>Search</h3>
     <form id="search_form" method="post" action="<?php echo $this->config->item('base_url')?>items/do_search">
-    <p><input type="text" name="query" class="text_input" value="<?php if (isset($query)): echo $query; endif;?>" /></p>
-    <p><input type="submit" /></p>
+    <p><input type="text" name="query" class="text_input" value="<?php if (isset($query)): echo $query; endif;?>" /> <input type="submit" /></p>
     </form>
 
 </div>

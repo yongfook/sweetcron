@@ -11,14 +11,14 @@
       <item>
          <title><?php echo $item->get_title()?></title>
          <link><?php echo $item->get_permalink()?></link>
-         <description><![CDATA[<?php echo $item->get_content()?>
+         <description><![CDATA[<div><?php echo $item->get_content()?>
             	<?php if ($item->has_image() && !$item->has_video()): ?>
             	<img src="<?php echo $item->get_image()?>" alt="" />
             	<?php endif; ?>
             	<?php if ($item->has_video()): ?>
             	<?php echo $item->get_video()?>
             	<?php endif; ?>
-         ]]></description>
+         </div>]]></description>
          <pubDate><?php echo date('r', $item->get_date())?></pubDate>
          <guid><?php echo $item->get_permalink()?></guid>
       </item>

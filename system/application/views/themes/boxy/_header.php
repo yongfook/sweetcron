@@ -10,24 +10,33 @@
 		<title><?php echo $page_name?> &rsaquo; <?php echo $this->config->item('lifestream_title')?></title>
 		<link rel="stylesheet" href="<?php echo $this->config->item('base_url')?>public/css/reset.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php echo $this->config->item('theme_folder')?>main.css" type="text/css" media="screen" />
-		<?php if ($page_type == 'index'): ?>
-		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php echo $this->config->item('base_url')?>feed" />
+		<?php if ($page_type == 'index' || !$page_type): ?>
+		<link rel="alternate" type="application/rss+xml" title="Full RSS Feed" href="http://feeds.feedburner.com/yongfook" />
+		<link rel="alternate" type="application/rss+xml" title="Blog-only RSS Feed" href="http://feeds.feedburner.com/yongfookblog" />
 		<?php else: ?>
 		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php echo $this->config->item('base_url')?>feed/<?php echo $page_type?>/<?php echo $page_query?>" />
+		<?php endif; ?>
+
+		<?php if (!$page_type): ?>
+		<link rel="stylesheet" href="<?php echo $this->config->item('theme_folder')?>scripts/code.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="<?php echo $this->config->item('theme_folder')?>scripts/highlight.js"></script>
+		<script type="text/javascript">
+        initHighlightingOnLoad('html', 'css', 'php', 'javascript');
+        </script>
 		<?php endif; ?>
 	</head>
 	
 	<body>
 	<div id="header">
-		<div class="centerbox header">
+		<div class="center_box">
 	
 			<ul id="navigation">
 				<li<?php if (!$this->uri->segment(1) || $this->uri->segment(1) == 'items' || $this->uri->segment(1) == 'page'): ?> class="current"<?php endif; ?>><a href="<?php echo $this->config->item('base_url')?>" title="My Lifestream">Lifestream</a></li>
+
 				<li<?php if ($this->uri->segment(2) == 'contact'): ?> class="current"<?php endif; ?>><a href="<?php echo $this->config->item('base_url')?>p/contact/" title="Contact Me">Contact</a></li>
-				<li id="rsslink"><a href="<?php echo $this->config->item('base_url')?>feed">RSS Feed</a></li>
 			</ul>
-			<h1 id="tagline"><?php echo $this->config->item('lifestream_title')?></h1>
+			<h1><a href="<?php echo $this->config->item('base_url')?>"><?php echo $this->config->item('lifestream_title')?></a></h1>
 		</div>
 	</div>
-
-    <div class="centerbox">
+	
+	<div class="center_box">
