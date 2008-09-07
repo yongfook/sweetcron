@@ -65,7 +65,7 @@
             	<?php endif; ?>
             	
             	</div>
-            	<p class="date"><?php echo $item->get_human_date()?> | <a href="<?php echo $item->get_permalink()?>/<?php echo $item->get_name()?><?php if ($item->get_date() >= 1220708667):?>#disqus_thread<?php endif; ?>">Comments &raquo;</a></p>
+            	<p class="date"><?php echo $item->get_human_date()?> | <a href="<?php echo $item->get_permalink()?>/<?php echo $item->get_name()?>">Comments &raquo;</a></p>
 
             </li>
 
