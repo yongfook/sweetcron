@@ -45,10 +45,7 @@ endif; ?>
 </div>
 
             <div id="comments_container">
-            <?php if (isset($item->item_data['pre_migration_permalink'])):?>
-            <script type="text/javascript">var disqus_url = '<?php echo $item->item_data['pre_migration_permalink']?>';</script>
-            <?php endif; ?>
-<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/yongfook/embed.js"></script><noscript><a href="http://yongfook.disqus.com/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
             </div>
 
 </div>
