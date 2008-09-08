@@ -45,7 +45,7 @@ endif; ?>
 </div>
 
             <div id="comments_container">
-
+	        Your favourite external commenting service goes here!  I recommend <a href="http://www.disqus.com">http://www.disqus.com</a>
             </div>
 
 </div>
