@@ -36,7 +36,7 @@
 </span>
 </p>
 
-<p><a href="#change_password" class="change_password<?php if ($this->validation->new_password_error || $this->validation->new_password_confirm_error):?> toggle"<?php endif; ?>">Change Password</a></p>
+<p><a href="#change_password" class="change_password<?php if (isset($this->validation->new_password_error) || isset($this->validation->new_password_confirm_error)):?> toggle"<?php endif; ?>">Change Password</a></p>
 
 <div id="change_password_container"<?php if (isset($this->validation->new_password_error) || isset($this->validation->new_password_confirm_error)):?> style="display: block;"<?php endif; ?>>
 <p><label class="title" for="new_password_input">New Password</label>
