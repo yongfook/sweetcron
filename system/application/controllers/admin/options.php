@@ -59,6 +59,7 @@ class Options extends Auth_Controller {
 			$fields['admin_email'] = 'Admin Email';
 			$fields['new_password'] = 'New Password';
 			$fields['new_password_confirm'] = 'New Password Confirm';
+			$fields['per_page'] = 'Items Per Page';
 			
 			$this->validation->set_fields($fields);
 
@@ -66,6 +67,7 @@ class Options extends Auth_Controller {
 	        $rules['admin_email']	= "trim|required|valid_email";	
 	        $rules['new_password']	= "trim|matches[new_password_confirm]";	
 	        $rules['new_password_confirm']	= "trim";	
+	        $rules['per_page']	= "numeric";	
 	        $this->validation->set_rules($rules);
 			if ($this->validation->run() == FALSE) {	
 				$data->errors = $this->validation->error_string;
