@@ -270,6 +270,7 @@ class Item_model extends Model {
 	function tag_item($tags = array(), $item_id = NULL)
 	{
 		$this->db->delete('tag_relationships', array('item_id' => $item_id));
+		$this->clean_tags();
 		if (isset($tags[0])) {
 			//nuke all item tags from orbit.  it's the only way to be sure.
 			foreach ($tags as $tag) {
@@ -285,12 +286,24 @@ class Item_model extends Model {
 				if (!$this->db->get_where('tag_relationships', $criteria)->row()) {
 					$this->db->insert('tag_relationships', $criteria);
 					//update tag count
-					$tag->count++;
+					$tag->count = $this->db->get_where('tag_relationships', $criteria)->num_rows();
 					$this->db->update('tags', $tag, array('tag_id' => $tag->tag_id));
 				}			
 			}
 		}
 	}	
+	
+	function clean_tags()
+	{
+		//sweeps through your tags and removes ones that
+		//are not associated with any posts (e.g. for when you delete tags when editing an item)
+		$tags = $this->db->select('*, tags.tag_id AS tag_id')->join('tag_relationships', 'tag_relationships.tag_id = tags.tag_id', 'left outer')->get('tags')->result();
+		foreach ($tags as $tag) {
+			if ($tag->item_id == '') {
+				$this->db->delete('tags', array('tag_id' => $tag->tag_id));	
+			}
+		}
+	}
 	
 	function delete_item($item_id)
 	{
