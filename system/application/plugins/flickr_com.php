@@ -6,9 +6,15 @@ class Flickr_com {
 
 	function pre_db($item, $original)
 	{
-		//override with date taken
-	    $date = $original->get_item_tags('http://purl.org/dc/elements/1.1/', 'date.Taken');
-		$item->item_date = strtotime(str_replace('T', ' ', substr($date[0]['data'], 0, -6)));
+		//set to TRUE if you want to use the date a photo was taken (as opposed to time uploaded) as the timestamp in sweetcron
+		$use_date_taken = FALSE;
+		//do not edit below this line
+		
+		if ($use_date_taken) {
+			//override with date taken
+		    $date = $original->get_item_tags('http://purl.org/dc/elements/1.1/', 'date.Taken');
+			$item->item_date = strtotime(str_replace('T', ' ', substr($date[0]['data'], 0, -6)));
+		}
 		
 		//remove username etc
 	    $flickr_username = $original->get_item_tags('http://www.w3.org/2005/Atom', 'author');
