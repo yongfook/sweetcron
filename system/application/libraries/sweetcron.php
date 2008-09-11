@@ -81,9 +81,9 @@ class Sweetcron {
 			//build out clean item
 			$new->item_status = 'publish';
 			$new->item_date = strtotime($item->get_date());
-			$new->item_title = trim(strip_tags($item->get_title()));
+			$new->item_title = $this->CI->input->xss_clean(trim(strip_tags($item->get_title())));
 			$new->item_permalink = $item->get_permalink();
-			$new->item_content = trim(strip_tags($item->get_content()));
+			$new->item_content = $this->CI->input->xss_clean(trim(strip_tags($item->get_content())));
 			$new->item_name = url_title($new->item_title);
 			$new->item_feed_id = $feed->feed_id;
 						
@@ -325,7 +325,7 @@ class Sweetcron {
 			}
 	
 			if ($query && $type == 'tag') {
-				$data->tag = $query;
+				$data->tag = urldecode($query);
 			}
 
 			if ($query && $type == 'site') {

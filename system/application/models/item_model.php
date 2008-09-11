@@ -274,11 +274,23 @@ class Item_model extends Model {
 		if (isset($tags[0])) {
 			//nuke all item tags from orbit.  it's the only way to be sure.
 			foreach ($tags as $tag) {
-				$tag = preg_replace('/[^a-z \d]/i', '', $tag);
+				//too strict, wasn't letting non-latin characters through
+				//$tag = preg_replace('/[^a-z \d]/i', '', $tag);
+				
+				//lets just get rid of some typical meh stuff from tags
+				$disallow = array('(',')',',','.','*','\'','"','|');
+				$tag = $this->input->xss_clean(str_replace($disallow,'',$tag));
+				
 				$slug = url_title($tag);
+				
+				//for unicode characters the slug might be blank, so...
+				if ($slug == '') {
+					$slug = urlencode($tag);
+				}
+				
 				if (!$this->db->get_where('tags', array('slug' => $slug))->row()) {
 					$new->name = $tag;
-					$new->slug = url_title($tag);
+					$new->slug = $slug;
 					$this->db->insert('tags', $new);
 				}
 				$tag = $this->db->get_where('tags', array('slug' => $slug))->row();
