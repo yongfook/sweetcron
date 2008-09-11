@@ -6,6 +6,11 @@ class Flickr_com {
 
 	function pre_db($item, $original)
 	{
+		//override with date taken
+	    $date = $original->get_item_tags('http://purl.org/dc/elements/1.1/', 'date.Taken');
+		$item->item_date = strtotime(str_replace('T', ' ', substr($date[0]['data'], 0, -6)));
+		
+		//remove username etc
 	    $flickr_username = $original->get_item_tags('http://www.w3.org/2005/Atom', 'author');
 	    $flickr_username = $flickr_username[0]['child']['http://www.w3.org/2005/Atom']['name'][0]['data'];
 		$remove_this = $flickr_username.' posted a photo:';
