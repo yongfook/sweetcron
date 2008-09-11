@@ -10,7 +10,7 @@
       <?php foreach ($items as $item): ?>
       <item>
          <title><?php echo $item->get_title()?></title>
-         <link><?php echo $item->get_permalink()?></link>
+         <link><?php echo $item->get_permalink()?>/<?php echo $item->get_name()?></link>
          <description><![CDATA[<div><?php echo $item->get_content()?>
             	<?php if ($item->has_image() && !$item->has_video()): ?>
             	<img src="<?php echo $item->get_image()?>" alt="" />
@@ -20,7 +20,7 @@
             	<?php endif; ?>
          </div>]]></description>
          <pubDate><?php echo date('r', $item->get_date())?></pubDate>
-         <guid><?php echo $item->get_permalink()?></guid>
+         <guid><?php echo $item->get_permalink()?>/<?php echo $item->get_name()?></guid>
       </item>
       <?php endforeach; ?>
    </channel>
