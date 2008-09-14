@@ -79,6 +79,7 @@ class Auth_Controller extends Public_Controller {
 	    //OMG WHO R U
         if ($this->data->user === FALSE) {
             header('Location: '.$this->config->item('base_url').'admin/login');
+            exit();
         } else {
             return;
         }
