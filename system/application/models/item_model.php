@@ -297,10 +297,10 @@ class Item_model extends Model {
 				$criteria = array('tag_id' => $tag->tag_id, 'item_id' => $item_id);
 				if (!$this->db->get_where('tag_relationships', $criteria)->row()) {
 					$this->db->insert('tag_relationships', $criteria);
-					//update tag count
-					$tag->count = $this->db->get_where('tag_relationships', $criteria)->num_rows();
-					$this->db->update('tags', $tag, array('tag_id' => $tag->tag_id));
 				}			
+				//update tag count
+				$count = $this->db->get_where('tag_relationships', array('tag_id' => $tag->tag_id))->num_rows();
+				$this->db->update('tags', array('count' => $count), array('tag_id' => $tag->tag_id));
 			}
 		}
 	}	
