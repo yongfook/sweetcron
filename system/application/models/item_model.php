@@ -311,6 +311,8 @@ class Item_model extends Model {
 		//are not associated with any posts (e.g. for when you delete tags when editing an item)
 		$tags = $this->db->select('*, tags.tag_id AS tag_id')->join('tag_relationships', 'tag_relationships.tag_id = tags.tag_id', 'left outer')->get('tags')->result();
 		foreach ($tags as $tag) {
+			$count = $this->db->get_where('tag_relationships', array('tag_id' => $tag->tag_id))->num_rows();
+			$this->db->update('tags', array('count' => $count), array('tag_id' => $tag->tag_id));
 			if ($tag->item_id == '') {
 				$this->db->delete('tags', array('tag_id' => $tag->tag_id));	
 			}
