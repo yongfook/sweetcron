@@ -242,8 +242,25 @@ class Sweetcron {
 		}
 	}
 	
-	function get_items_page($type = 'index', $current_page_num = 1, $public = FALSE, $query = NULL, $rss_filter = NULL)
+	function query_items($type = 'site', $query = NULL, $offset = 0, $limit = 10)
 	{
+		return $this->get_items_page($type, NULL, TRUE, $query, NULL, TRUE, $offset, $limit);
+	}
+	
+	function get_items_page($type = 'index', $current_page_num = 1, $public = FALSE, $query = NULL, $rss_filter = NULL, $query_items = NULL, $offset = NULL, $limit = NULL)
+	{
+		
+		//return raw items for query_items()
+		if ($query_items) {
+			if ($type == 'site') {
+				return $this->CI->item_model->get_items_by_feed_domain($offset, $limit, $query, $public);
+			} elseif ($type == 'tag') {
+				return $this->CI->item_model->get_items_by_tag($offset, $limit, $query, $public);       				
+			} elseif ($type == 'search') {
+				return $this->CI->item_model->get_items_by_search($offset, $limit, $query, $public);       				
+			}
+			exit();
+		}
 
         $data->blog_posts = $this->CI->item_model->get_items_by_feed_domain(0, 10, 'sweetcron', $public);
         $data->active_feeds = $this->CI->feed_model->get_active_feeds(TRUE);
