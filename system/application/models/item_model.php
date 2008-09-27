@@ -43,6 +43,7 @@ class Item_model extends Model {
 	
 	function _process($items, $return_single = FALSE)
 	{
+		$this->load->helper('url');
 		if ($items) {
 			foreach ($items as $key => $value) {
 				$new_item = new Sweetcron_item;
@@ -60,7 +61,7 @@ class Item_model extends Model {
 				$new_item->ID = $items[$key]->ID;	
 				$new_item->item_date = $items[$key]->item_date;	
 				//autolinks
-				$new_item->item_content = $this->_autolink($items[$key]->item_content);
+				$new_item->item_content = auto_link($items[$key]->item_content);
 
 				$new_item->item_content = markdown($new_item->item_content);	
 				$new_item->item_title = $this->_autolink($items[$key]->item_title);	
