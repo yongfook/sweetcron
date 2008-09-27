@@ -113,6 +113,7 @@ class Item_model extends Model {
 	
 	function _autolink($text)
 	{
+		//now deprecated in favour of url_helper's auto_link function
 		return preg_replace('/(?<!\S)((http(s?):\/\/)|(www\.))+([\w.\/&=?\-~%;]+)\b/i', '<a href="http$3://$4$5" rel="external">http$3://$4$5</a>', $text);	
 	}
 	
