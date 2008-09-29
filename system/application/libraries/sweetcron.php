@@ -213,6 +213,12 @@ class Sweetcron {
 		if (version_compare(PHP_VERSION, '5.0.0', '<')) {
 			die('Sorry, Sweetcron is for PHP5 and above.  Your version of PHP is lower than that.  Time to upgrade?');
 		}
+		if (function_exists('apache_get_modules')) {
+			$modules = apache_get_modules();
+	        if (!in_array("mod_rewrite", $modules)) {
+				die('Sorry, it looks like your server does not have mod_rewrite installed.  Please contact your webhost to get it enabled.');
+	        }
+		}
 	}
 	
 	function do_search()

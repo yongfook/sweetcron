@@ -271,10 +271,10 @@ class Item_model extends Model {
 	
 	function tag_item($tags = array(), $item_id = NULL)
 	{
+		//nuke all item tags from orbit.  it's the only way to be sure.
 		$this->db->delete('tag_relationships', array('item_id' => $item_id));
 		$this->clean_tags();
 		if (isset($tags[0])) {
-			//nuke all item tags from orbit.  it's the only way to be sure.
 			foreach ($tags as $tag) {
 				//too strict, wasn't letting non-latin characters through
 				//$tag = preg_replace('/[^a-z \d]/i', '', $tag);
