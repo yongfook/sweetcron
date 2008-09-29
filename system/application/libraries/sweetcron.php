@@ -114,12 +114,29 @@ class Sweetcron {
 		if ($feed_domain && $item) {
 			$class = str_replace('.', '_', $feed_domain);
 			$plugin = BASEPATH.'application/plugins/'.$class.'.php';
-			if (file_exists($plugin)) {
+			//support subdomain with base domain plugin if no subdomain-specific plugin exists
+			$domain = explode('.', $feed_domain);
+			if (isset($domain[2])) {
+				//this is a subdomain of a base domain
+				$is_subdomain = TRUE;
+				$base_class = str_replace($domain[0].'_', '', $class);
+				$base_plugin = BASEPATH.'application/plugins/'.$base_class.'.php';
+			} else {
+				$is_subdomain = FALSE;	
+			}
+			if (file_exists($plugin) || ($is_subdomain && file_exists($base_plugin))) {
 				//check if already loaded
-				if (!method_exists($class, $method)) {
-					include(BASEPATH.'application/plugins/'.$class.'.php');
+				if ($is_subdomain && file_exists($base_plugin)) {
+					if (!method_exists($base_class, $method)) {
+						include(BASEPATH.'application/plugins/'.$base_class.'.php');
+					}
+					$plugin = new $base_class;
+				} else {
+					if (!method_exists($class, $method)) {
+						include(BASEPATH.'application/plugins/'.$class.'.php');
+					}					
+					$plugin = new $class;
 				}
-				$plugin = new $class;
 				return $plugin->$method($item, $simplepie_object);
 			} else {
 				return $item;	

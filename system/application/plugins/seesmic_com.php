@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Feeds_seesmic_com {
+class Seesmic_com {
 	
 	//sample class for seesmic
 
