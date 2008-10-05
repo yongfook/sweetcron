@@ -17,8 +17,10 @@ class Flickr_com {
 		}
 		
 		//remove username etc
-	    $flickr_username = $original->get_item_tags('http://www.w3.org/2005/Atom', 'author');
-	    $flickr_username = $flickr_username[0]['child']['http://www.w3.org/2005/Atom']['name'][0]['data'];
+	    $flickr_username = $original->get_item_tags('', 'author');
+	    $flickr_username = $flickr_username[0]['data'];
+	    preg_match('/.*\((.*)\).*/', $flickr_username, $matches);
+	    $flickr_username = $matches[1];
 		$remove_this = $flickr_username.' posted a photo:';
 		$item->item_content = trim(str_replace($remove_this, '', $item->item_content));
 
