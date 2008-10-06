@@ -80,7 +80,7 @@ class Sweetcron {
 			
 			//build out clean item
 			$new->item_status = 'publish';
-			$new->item_date = strtotime($item->get_date());
+			$new->item_date = strtotime($item->get_date('D M j G:i:s Y'));
 			$new->item_title = $this->CI->input->xss_clean(trim(strip_tags($item->get_title())));
 			$new->item_permalink = $item->get_permalink();
 			$new->item_content = $this->CI->input->xss_clean(trim(strip_tags($item->get_content())));

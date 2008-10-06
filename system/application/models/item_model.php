@@ -64,7 +64,7 @@ class Item_model extends Model {
 				$new_item->item_content = auto_link($items[$key]->item_content);
 
 				$new_item->item_content = markdown($new_item->item_content);	
-				$new_item->item_title = $this->_autolink($items[$key]->item_title);	
+				$new_item->item_title = auto_link($items[$key]->item_title);	
 				$new_item->item_original_permalink = $items[$key]->item_permalink;	
 				$new_item->item_permalink = $this->config->item('base_url').'items/view/'.$new_item->ID;
 				$new_item->item_status = $items[$key]->item_status;	
@@ -109,12 +109,6 @@ class Item_model extends Model {
 		} else {
 			return false;	
 		}
-	}
-	
-	function _autolink($text)
-	{
-		//now deprecated in favour of url_helper's auto_link function
-		return preg_replace('/(?<!\S)((http(s?):\/\/)|(www\.))+([\w.\/&=?\-~%;]+)\b/i', '<a href="http$3://$4$5" rel="external">http$3://$4$5</a>', $text);	
 	}
 	
 	function get_public_item_by_id($item_id)
