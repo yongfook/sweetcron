@@ -58,7 +58,7 @@ class Feeds extends Auth_Controller {
 				$_POST['url'] = '';
 			}
 			$this->load->library('validation');
-	        $rules['url']	= "trim|required|xss_clean|callback__test_feed";	
+	        $rules['url']	= "trim|required|callback__test_feed";	
 	        $this->validation->set_rules($rules);
 			if ($this->validation->run() == FALSE) {	
 				$data->errors = $this->validation->error_string;
