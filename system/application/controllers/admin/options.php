@@ -48,8 +48,10 @@ class Options extends Auth_Controller {
 		$data->page_name = 'Options';
 		$theme_folder = get_dir_file_info(BASEPATH.'application/views/themes', FALSE, TRUE);
 		foreach ($theme_folder as $key => $value) {
-			$themes[$key]->folder = $key;
-			$themes[$key]->name = humanize($key);
+			if (is_dir(BASEPATH.'application/views/themes/'.$key)) {
+				$themes[$key]->folder = $key;
+				$themes[$key]->name = humanize($key);
+			}
 		}	
 		$data->themes = $themes;
 
