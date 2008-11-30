@@ -9,7 +9,7 @@
       <webMaster><?php echo $this->config->item('admin_email')?></webMaster>
       <?php foreach ($items as $item): ?>
       <item>
-         <title><?php echo $item->get_title()?></title>
+         <title><?php echo htmlspecialchars($item->get_title())?></title>
          <link><?php echo $item->get_permalink()?>/<?php echo $item->get_name()?></link>
          <description><![CDATA[<div><?php echo $item->get_content()?>
             	<?php if ($item->has_image() && !$item->has_video()): ?>
