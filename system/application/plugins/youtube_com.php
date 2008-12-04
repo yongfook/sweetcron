@@ -22,7 +22,7 @@ class Youtube_com {
 		$link = $item->item_data['permalink'];
 		$link = str_replace('?v=', '/v/', $link);
 				
-		$item->item_data['video'] = '<object width="212" height="178"><param name="movie" value="'.$link.'&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="'.$link.'&hl=en&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="212" height="178"></embed></object>';
+		$item->item_data['video'] = '<object width="212" height="178"><param name="movie" value="'.$link.'&hl=en&fs=1&showsearch=0"></param><param name="allowFullScreen" value="true"></param><embed src="'.$link.'&hl=en&fs=1&showsearch=0" type="application/x-shockwave-flash" allowfullscreen="true" width="212" height="178"></embed></object>';
 		return $item;
 	}
 
