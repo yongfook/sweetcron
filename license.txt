@@ -8,7 +8,7 @@ http://www.yongfook.com
 Written in CodeIgniter
 http://www.codeigniter.com
 
-Sweetcron is Copyright (c) 2008, Edible, Inc.
+Sweetcron is Copyright (c) 2008, Egg & Co.
 All rights reserved.
 
 This license is a legal agreement between you and Edible Inc. for the use
@@ -30,6 +30,14 @@ the following conditions are met:
 
 4. Any files that have been modified must carry notices stating the nature
    of the change and the names of those who changed them.
+   
+5. Products derived from the Software must include an acknowledgment that
+   they are derived from Sweetcron in their documentation and/or other
+   materials provided with the distribution.
+
+6. Products derived from the Software may not be called "Sweetcron",
+   nor may "Sweetcron" appear in their name, without prior written
+   permission from Egg & Co.
 
 INDEMNITY
 You agree to indemnify and hold harmless the authors of the Software and

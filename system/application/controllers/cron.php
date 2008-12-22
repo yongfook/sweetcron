@@ -4,7 +4,7 @@
  *
  * Self-hosted lifestream software based on the CodeIgniter framework.
  *
- * Copyright (c) 2008, Yongfook.com & Edible, Inc.
+ * Copyright (c) 2008, Yongfook and Egg & Co.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -28,7 +28,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package Sweetcron
- * @copyright 2008, Yongfook.com & Edible, Inc.
+ * @copyright 2008, Yongfook and Egg & Co.
  * @author Yongfook
  * @link http://sweetcron/ Sweetcron
  * @license http://www.opensource.org/licenses/gpl-2.0.php GPL License
