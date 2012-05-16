@@ -1,0 +1,30 @@
+Sweetcron is no longer under active development. This app was written in 2008 and is beginning to show its age a little, but it might be useful to some people so I put it up here on Github. I'm now a happy Ruby on Rails developer so even I might not understand how Sweetcron works anymore... don't ask me!
+
+##Documentation
+For now is still at Google Code: 
+http://code.google.com/p/sweetcron/w/list
+
+##Tutorial
+Here's a really good one written by Nettuts:
+http://net.tutsplus.com/tutorials/site-builds/building-a-custom-lifestream-website-with-sweetcron/
+
+##Press
+Sweetcron was popular in its day. Here's some blogs about it:
+http://www.carbongraffiti.com/2008/11/25-of-the-best-sweetcron-powered-lifestreams/
+http://www.readwriteweb.com/archives/sweetcron_lifestream_self_hosted.php
+http://500hats.typepad.com/500blogs/2008/08/omg-sweetcron-r.html
+
+##What is Sweetcron?
+Sweetcron is a self-hosted lifestreaming application that supports themes & plugins. It is based on the CodeIgniter php framework, from EllisLab.
+
+###Automatic Import
+Uploaded a photo to flickr? Bookmarked a new site? In a few minutes it will show up on your blog!
+
+###Easily Customisable
+Edit simple templates to change the way your Sweetcron Lifestream looks. Default Boxy But Good theme included!
+
+###Self Hosted
+Keep all your data safely on your own server and run Sweetcron via your own domain.
+
+###100% Free and Open Source
+Oh and did I mention Sweetcron is fully extensible, too? Write your own php classes and slot them right in!
